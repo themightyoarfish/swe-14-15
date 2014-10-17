@@ -100,6 +100,8 @@
    \umluniassoc[pos1=.1,pos2=.9,arg1=move,mult2=1,arg2=field,mult1=0..*,name=setFieldTo]{Move}{Field}
    \umluniassoc[arg1=last,mult2=0..1,arg2=previous,mult1=0..1,pos1=.05,name=precursor,pos2=.9,angle1=45,angle2=0,loopsize=3cm]{Move}{Move}
    \umluniaggreg[arg1=player,mult2=*,arg2=move,mult1=1,name=makeMove]{Player}{Move}
+   \umluniassoc[geometry=|-,anchors=135 and
+   40,arg1=move,arg2=board,mult1=1,mult2=*,name=makeMoveOn,pos2=1.7,pos1=.1]{Move}{Sudoku}
 
    \node () at (rows-2) [fill=blue!20,text opacity=1] {$\triangleleft$ consists of};
    \node () at (cols-1) [fill=blue!20,text opacity=1] {$\triangledown$ consists of};
@@ -111,7 +113,8 @@
    \node () at (contains-1) [fill=blue!20,text opacity=1] {$\triangledown$ contains}; 
    \node () at (choose-2) [fill=blue!20,text opacity=1] {$\triangleleft$ choose}; 
    \node () at ($(precursor-1) + (2pt,0)$) [fill=blue!20,text opacity=1] {$\triangledown$ precursor}; 
-   \node () at (makeMove-1) [fill=blue!20,text opacity=1] {$\triangledown$ make move}; 
+   \node () at ($(makeMove-1) + (.5cm,0)$) [fill=blue!20,text opacity=1] {$\triangledown$ make move}; 
+   \node () at ($(makeMoveOn-3) + (0,0cm)$) [fill=blue!20,text opacity=1] {$\triangleleft$ on}; 
 \end{umlpackage}
 \end{tikzpicture}
 \end{document}
