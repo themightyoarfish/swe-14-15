@@ -4,3 +4,4 @@ syntax: glob
 *.swp
 *.out
 *.aux
+.DS_Store
