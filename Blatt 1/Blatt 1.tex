@@ -56,27 +56,10 @@
 \subsection{Grundlagen: Software-Krise und Software Engineering (40 Punkte)}
 
 \begin{enumerate}
-   \item 
-      Es passierte oft, dass Software in den Anfangstagen der
-      Softwareentwicklung das Budget sprengte, mehr Zeit in Anspruch nahm als
-      geplant (oder gar nicht fertiggestellt wurde), nicht effizient, wartbar
-      oder portierbar war und allgemein den Anforderungen nur unzureichend
-      genügte. Dies führte zu vielen Fehlern auch in der Funktionalität an sich,
-      die sich in teils teuren oder lebensgefährlichen Ereignissen.
-   \item Nachdem auf einer Tagung des NATO Science Commitee 1968 diese
-      Problematik konstatiert wurde, wurde rückte verstärkt die Entwicklung von
-      Werkzeugen und Strategien in den Fokus der Forschung, um diese in den
-      Griff zu bekommen. Da die Ingenieursdisziplin viele ähnliche Probleme
-      bereits gelöst hatte, entstand analog dazu das Forschungsgebiet des
-      Software Engineering. Ziel war es, das Vorgehen bei der
-      Softwareentwicklung auf ein wissenschaftliches und systematisches
-      Fundament zu stellen.
-   \item Man kann einige Probleme festsellen, so ist von vornherein nicht klar,
-      welche Lines mitgezählt werden, da je nach Anwendung und Plattform viel Code
-      autogeneriert wird, unterschiedliche Sprachen unterschiedlich verbos sind,
-      was aber nicht zwangsläufig höheren Arbeitsaufwand bedeutet. Auch können
-      unterschiedliche Stilstandards zu unterschiedlich vielen Leerzeilen führen
-      oder mehr Code pro Zeile platzieren.
+   \item In den ersten Computersystemen diente Software ausschließlich der Berechnung eines einzelnen Algorithmus oder zumindest einer eng begrenzten Problemklasse. Durch die schnelle Leistungssteigerung dieser Systeme und der Ausweitung der Anwendergruppe von Spezialisten zu gewöhnlichen Menschen ohne weiterführende Computer-Kenntnisse stiegen die Anforderungen an Software. Somit wurde Software vielseitiger, umfassender und setzte komplexere Algorithmen ein. Diesem Wachstum im Rahmen von Umfang, Zahl der beteiligten Entwickler und Komponenten hielt der bislang unsystematische Entwicklungsvorgang von Software nicht stand. Diese fehlerbehaftete Vorgehensweise führte häufig dazu, dass Software nicht zum geplanten Preis oder in der geplanten Zeit, teilweise garnicht, fertig gestellt werden konnte. Ausserdem war Software dementsprechend ineffizient, schlecht wartbar und nicht portierbar. Diese Fehler in der Funktionalität führten zu teuren oder sogar lebensgefährlichen Resultaten.
+   \item Nachdem auf einer Tagung des NATO Science Commitee 1968 diese Problematik konstatiert wurde, wurde rückte verstärkt die Entwicklung von Werkzeugen und Strategien in den Fokus der Forschung, um diese in den Griff zu bekommen. Da die Ingenieursdisziplin viele ähnliche Probleme  bereits gelöst hatte, entstand analog dazu das Forschungsgebiet des
+      Software Engineering. Ziel war es, das Vorgehen bei der Softwareentwicklung auf ein wissenschaftliches und systematisches Fundament zu stellen.
+   \item Die Metrik der \textit{Lines of Code} wirft einige Probleme auf. So bleibt zu definieren, welche Art von Zeilen in die Kalkulation eingehen (z.B. Leerzeilen oder Kommentare). Die ermittelten Resultate können für ein Programm selber Funktionalität stark variieren abhängig von Programmierstil, verwendeter Bibiliotheken, (Höhe der) Programmiersprache und autogeneriertem Code.
 \end{enumerate}
 
 
@@ -101,7 +84,7 @@
 
    \umlunicompo[geometry=-|,pos1=.2,pos2=1.9,name=rows,arg2=rows,arg1=board,mult1=1,mult2=9]{Sudoku}{SudokuRow}
    \umlunicompo[pos1=.2,pos2=.9,name=cols,arg2=columns,arg1=board,mult1=1,mult2=9]{Sudoku}{SudokuColumn}
-   \umlunicompo[geometry=-|,pos1=.2,pos2=1.9,name=subfields,arg2=subfields,arg1=board,mult1=1,mult2=9]{Sudoku}{3x3Field}
+   \umlunicompo[geometry=-|,pos1=.2,pos2=1.9,name=subfields,arg2=subfields,arg1=board,mult1=1,mult2=3]{Sudoku}{3x3Field}
    \umluniassoc[pos1=.1,pos2=1.8,arg1=player,arg2=game,name=plays,geometry=-|,mult2=0..*,mult1=1]{Player}{Sudoku}
    % \umlbiassoc[geometry=-|,anchors=215 and 145,arm1=1.5cm]{Player}{Sudoku}
    \umluniaggreg[geometry=|-,anchors=275 and 180,arg1=row,arg2=fields,pos2=1.8,name=rowFields,mult1=1,mult2=9]{SudokuRow}{Field}
