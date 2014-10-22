@@ -1,0 +1,7 @@
+syntax: glob
+
+*.log
+*.swp
+*.out
+*.aux
+.DS_Store
