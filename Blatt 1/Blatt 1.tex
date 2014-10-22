@@ -55,13 +55,36 @@
 \setcounter{subsection}{1}
 \subsection{Grundlagen: Software-Krise und Software Engineering (40 Punkte)}
 
-\begin{enumerate}
-   \item In den ersten Computersystemen diente Software ausschließlich der Berechnung eines einzelnen Algorithmus oder zumindest einer eng begrenzten Problemklasse. Durch die schnelle Leistungssteigerung dieser Systeme und der Ausweitung der Anwendergruppe von Spezialisten zu gewöhnlichen Menschen ohne weiterführende Computer-Kenntnisse stiegen die Anforderungen an Software. Somit wurde Software vielseitiger, umfassender und setzte komplexere Algorithmen ein. Diesem Wachstum im Rahmen von Umfang, Zahl der beteiligten Entwickler und Komponenten hielt der bislang unsystematische Entwicklungsvorgang von Software nicht stand. Diese fehlerbehaftete Vorgehensweise führte häufig dazu, dass Software nicht zum geplanten Preis oder in der geplanten Zeit, teilweise garnicht, fertig gestellt werden konnte. Ausserdem war Software dementsprechend ineffizient, schlecht wartbar und nicht portierbar. Diese Fehler in der Funktionalität führten zu teuren oder sogar lebensgefährlichen Resultaten.
-   \item Nachdem auf einer Tagung des NATO Science Commitee 1968 diese Problematik konstatiert wurde, wurde rückte verstärkt die Entwicklung von Werkzeugen und Strategien in den Fokus der Forschung, um diese in den Griff zu bekommen. Da die Ingenieursdisziplin viele ähnliche Probleme  bereits gelöst hatte, entstand analog dazu das Forschungsgebiet des
-      Software Engineering. Ziel war es, das Vorgehen bei der Softwareentwicklung auf ein wissenschaftliches und systematisches Fundament zu stellen.
-   \item Die Metrik der \textit{Lines of Code} wirft einige Probleme auf. So bleibt zu definieren, welche Art von Zeilen in die Kalkulation eingehen (z.B. Leerzeilen oder Kommentare). Die ermittelten Resultate können für ein Programm selber Funktionalität stark variieren abhängig von Programmierstil, verwendeter Bibiliotheken, (Höhe der) Programmiersprache und autogeneriertem Code.
+\begin{enumerate} 
+   \item In den ersten Computersystemen diente Software ausschließlich der
+      Berechnung eines einzelnen Algorithmus oder zumindest einer eng begrenzten
+      Problemklasse. Durch die schnelle Leistungssteigerung dieser Systeme und
+      der Ausweitung der Anwendergruppe von Spezialisten zu gewöhnlichen
+      Menschen ohne weiterführende Computer-Kenntnisse stiegen die Anforderungen
+      an Software. Somit wurde Software vielseitiger, umfassender und setzte
+      komplexere Algorithmen ein. Diesem Wachstum im Rahmen von Umfang, Zahl der
+      beteiligten Entwickler und Komponenten hielt der bislang unsystematische
+      Entwicklungsvorgang von Software nicht stand. Diese fehlerbehaftete
+      Vorgehensweise führte häufig dazu, dass Software nicht zum geplanten Preis
+      oder in der geplanten Zeit, teilweise gar nicht, fertig gestellt werden
+      konnte. Ausserdem war Software dementsprechend ineffizient, schlecht
+      wartbar und nicht portierbar. Diese Fehler in der Funktionalität führten
+      zu teuren oder sogar lebensgefährlichen Resultaten.  
+   \item Nachdem auf einer Tagung des NATO Science Commitee 1968 diese
+      Problematik konstatiert wurde, rückte verstärkt die Entwicklung
+      von Werkzeugen und Strategien in den Fokus der Forschung, um diese in
+      den Griff zu bekommen. Da die Ingenieursdisziplin viele ähnliche
+      Probleme  bereits gelöst hatte, entstand analog dazu das
+      Forschungsgebiet des Software Engineering.  Ziel war es, das Vorgehen
+      bei der Softwareentwicklung auf ein wissenschaftliches und
+      systematisches Fundament zu stellen.  
+   \item Die Metrik der \textit{Lines of Code} wirft einige Probleme auf. So
+      bleibt zu definieren, welche Art von Zeilen in die Kalkulation eingehen
+      (z.B.  Leerzeilen oder Kommentare). Die ermittelten Resultate können für
+      ein Programm selber Funktionalität stark variieren abhängig von
+      Programmierstil, verwendeter Bibliotheken, (Höhe der) Programmiersprache
+      und autogeneriertem Code.  
 \end{enumerate}
-
 
 \subsection{Objektorientierter Entwurf (60 Punkte)}
 
@@ -69,49 +92,49 @@
 \begin{tikzpicture}[every node/.style={font=\footnotesize\sffamily}]
    \tikzumlset{font=\small\sffamily}
    \begin{umlpackage}{Sudoku}
-      
-   \umlclass[x=0,y=0]{SudokuRow}{}{}
-   \umlclass[x=4,y=0]{SudokuColumn}{}{}
-   \umlclass[x=8,y=0]{3x3Field}{}{}
-   \umlclass[x=4,y=4]{Sudoku}{}{}
-   \umlclass[x=11,y=6]{Player}{}{}
-   \umlclass[x=4,y=-4]{Field}{}{}
-   \umlclass[x=11,y=-4]{Move}{}{}
-   \umlclass[x=4,y=-8]{Number}{}{}
 
-   % dummy node to expand the package box. urg.
-   \umlclass[x=14,y=6,draw=none,fill=none,text=blue!20]{I}{}{}
+      \umlclass[x=0,y=0]{SudokuRow}{}{}
+      \umlclass[x=4,y=0]{SudokuColumn}{}{}
+      \umlclass[x=8,y=0]{3x3Field}{}{}
+      \umlclass[x=4,y=4]{Sudoku}{}{}
+      \umlclass[x=11,y=6]{Player}{}{}
+      \umlclass[x=4,y=-4]{Field}{}{}
+      \umlclass[x=11,y=-4]{Move}{}{}
+      \umlclass[x=4,y=-8]{Number}{}{}
 
-   \umlunicompo[geometry=-|,pos1=.2,pos2=1.9,name=rows,arg2=rows,arg1=board,mult1=1,mult2=9]{Sudoku}{SudokuRow}
-   \umlunicompo[pos1=.2,pos2=.9,name=cols,arg2=columns,arg1=board,mult1=1,mult2=9]{Sudoku}{SudokuColumn}
-   \umlunicompo[geometry=-|,pos1=.2,pos2=1.9,name=subfields,arg2=subfields,arg1=board,mult1=1,mult2=3]{Sudoku}{3x3Field}
-   \umluniassoc[pos1=.1,pos2=1.8,arg1=player,arg2=game,name=plays,geometry=-|,mult2=0..*,mult1=1]{Player}{Sudoku}
-   % \umlbiassoc[geometry=-|,anchors=215 and 145,arm1=1.5cm]{Player}{Sudoku}
-   \umluniaggreg[geometry=|-,anchors=275 and 180,arg1=row,arg2=fields,pos2=1.8,name=rowFields,mult1=1,mult2=9]{SudokuRow}{Field}
-   \umluniaggreg[arg1=column,arg2=fields,name=colFields,mult1=1,mult2=9]{SudokuColumn}{Field}
-   \umluniaggreg[geometry=-|-,anchors=200 and 40,pos1=.6,pos2=1.9,arg1=subfield,arg2=fields,name=subFields,mult1=1,mult2=9]{3x3Field}{Field}
-   \umluniaggreg[arg1=field,arg2=contained number,mult1=*,mult2=1,name=contains]{Field}{Number}
-   \umluniassoc[mult2=1,mult1=*,arg2=chosen number,arg1=move,name=choose,geometry=|-,pos2=1.8,anchors=275 and 0]{Move}{Number}
-   \umluniassoc[pos1=.1,pos2=.9,arg1=move,mult2=1,arg2=field,mult1=0..*,name=setFieldTo]{Move}{Field}
-   \umluniassoc[arg1=last,mult2=0..1,arg2=previous,mult1=0..1,pos1=.05,name=precursor,pos2=.9,angle1=45,angle2=0,loopsize=3cm]{Move}{Move}
-   \umluniaggreg[arg1=player,mult2=*,arg2=move,mult1=1,name=makeMove]{Player}{Move}
-   \umluniassoc[geometry=|-,anchors=135 and
-   40,arg1=move,arg2=board,mult1=1,mult2=*,name=makeMoveOn,pos2=1.7,pos1=.1]{Move}{Sudoku}
+      % dummy node to expand the package box. urg.
+      \umlclass[x=14,y=6,draw=none,fill=none,text=blue!20]{I}{}{}
 
-   \node () at (rows-2) [fill=blue!20,text opacity=1] {$\triangleleft$ consists of};
-   \node () at (cols-1) [fill=blue!20,text opacity=1] {$\triangledown$ consists of};
-   \node () at (subfields-2) [fill=blue!20,text opacity=1] {$\triangleright$ consists of};
-   \node () at (subFields-3) [fill=blue!20,text opacity=1] {$\triangledown$ consists of};
-   \node () at (plays-2) [fill=blue!20,text opacity=1] {$\triangleleft$ plays}; 
-   \node () at (rowFields-2) [fill=blue!20,text opacity=1] {$\triangleright$ consists of}; 
-   \node () at (colFields-1) [fill=blue!20,text opacity=1] {$\triangledown$ consists of}; 
-   \node () at (contains-1) [fill=blue!20,text opacity=1] {$\triangledown$ contains}; 
-   \node () at (choose-2) [fill=blue!20,text opacity=1] {$\triangleleft$ choose}; 
-   \node () at ($(precursor-1) + (2pt,0)$) [fill=blue!20,text opacity=1] {$\triangledown$ precursor}; 
-   \node () at ($(makeMove-1) + (.5cm,0)$) [fill=blue!20,text opacity=1] {$\triangledown$ make move}; 
-   \node () at ($(makeMoveOn-3) + (0,0cm)$) [fill=blue!20,text opacity=1] {$\triangleleft$ on}; 
+      \umlunicompo[geometry=-|,pos1=.2,pos2=1.9,name=rows,arg2=rows,arg1=board,mult1=1,mult2=9]{Sudoku}{SudokuRow}
+      \umlunicompo[pos1=.2,pos2=.9,name=cols,arg2=columns,arg1=board,mult1=1,mult2=9]{Sudoku}{SudokuColumn}
+      \umlunicompo[geometry=-|,pos1=.2,pos2=1.9,name=subfields,arg2=subfields,arg1=board,mult1=1,mult2=9]{Sudoku}{3x3Field}
+      \umluniassoc[pos1=.1,pos2=1.8,arg1=player,arg2=game,name=plays,geometry=-|,mult2=0..*,mult1=1]{Player}{Sudoku}
+      % \umlbiassoc[geometry=-|,anchors=215 and 145,arm1=1.5cm]{Player}{Sudoku}
+      \umluniaggreg[geometry=|-,anchors=275 and 180,arg1=row,arg2=fields,pos2=1.8,name=rowFields,mult1=1,mult2=9]{SudokuRow}{Field}
+      \umluniaggreg[arg1=column,arg2=fields,name=colFields,mult1=1,mult2=9]{SudokuColumn}{Field}
+      \umluniaggreg[geometry=-|-,anchors=200 and 40,pos1=.6,pos2=1.9,arg1=subfield,arg2=fields,name=subFields,mult1=1,mult2=9]{3x3Field}{Field}
+      \umluniaggreg[arg1=field,arg2=contained number,mult1=*,mult2=1,name=contains]{Field}{Number}
+      \umluniassoc[mult2=1,mult1=*,arg2=chosen number,arg1=move,name=choose,geometry=|-,pos2=1.8,anchors=275 and 0]{Move}{Number}
+      \umluniassoc[pos1=.1,pos2=.9,arg1=move,mult2=1,arg2=field,mult1=0..*,name=setFieldTo]{Move}{Field}
+      \umluniassoc[arg1=last,mult2=0..1,arg2=previous,mult1=0..1,pos1=.05,name=precursor,pos2=.9,angle1=45,angle2=0,loopsize=3cm]{Move}{Move}
+      \umluniaggreg[arg1=player,mult2=*,arg2=move,mult1=1,name=makeMove]{Player}{Move}
+      \umluniassoc[geometry=|-,anchors=135 and
+      40,arg1=move,arg2=board,mult1=1,mult2=*,name=makeMoveOn,pos2=1.7,pos1=.1]{Move}{Sudoku}
 
-   \umlnote[y=-6.5,x=.5]{Number}{0-9, 0 := free}
-\end{umlpackage}
+      \node () at (rows-2) [fill=blue!20,text opacity=1] {$\triangleleft$ consists of};
+      \node () at (cols-1) [fill=blue!20,text opacity=1] {$\triangledown$ consists of};
+      \node () at (subfields-2) [fill=blue!20,text opacity=1] {$\triangleright$ consists of};
+      \node () at (subFields-3) [fill=blue!20,text opacity=1] {$\triangledown$ consists of};
+      \node () at (plays-2) [fill=blue!20,text opacity=1] {$\triangleleft$ plays}; 
+      \node () at (rowFields-2) [fill=blue!20,text opacity=1] {$\triangleright$ consists of}; 
+      \node () at (colFields-1) [fill=blue!20,text opacity=1] {$\triangledown$ consists of}; 
+      \node () at (contains-1) [fill=blue!20,text opacity=1] {$\triangledown$ contains}; 
+      \node () at (choose-2) [fill=blue!20,text opacity=1] {$\triangleleft$ choose}; 
+      \node () at ($(precursor-1) + (2pt,0)$) [fill=blue!20,text opacity=1] {$\triangledown$ precursor}; 
+      \node () at ($(makeMove-1) + (.5cm,0)$) [fill=blue!20,text opacity=1] {$\triangledown$ make move}; 
+      \node () at ($(makeMoveOn-3) + (0,0cm)$) [fill=blue!20,text opacity=1] {$\triangleleft$ on}; 
+
+      \umlnote[y=-6.5,x=.5]{Number}{0-9, 0 := free}
+   \end{umlpackage}
 \end{tikzpicture}
 \end{document}
