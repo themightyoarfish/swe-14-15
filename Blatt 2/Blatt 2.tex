@@ -1,0 +1,119 @@
+\documentclass{scrartcl}
+\title{\rmfamily Software Engineering -- Blatt 2}
+\author{Rasmus Diederichsen \and Felix Breuninger\and % ugly hack, why does \\ ... work no more?
+   \texttt{\{rdiederichse, fbreunin\}@uos.de}
+}
+\date{\today}
+\usepackage[ngerman]{babel}
+\usepackage{microtype,
+            textcomp,
+            titlesec,
+            enumitem,
+            fullpage,
+            xcolor,
+            listings,
+            tikz,
+            IEEEtrantools,
+            array,
+            amsmath,
+            amssymb,
+            graphicx,
+            subcaption,
+            lmodern}
+\usepackage[pdftitle={Software Engineering -- Blatt 2}, 
+       pdfauthor={Rasmus Diederichsen}, 
+       hyperfootnotes=true,
+       colorlinks,
+       bookmarksnumbered = true,
+       linkcolor = lightgray,
+       plainpages = false,
+       citecolor = lightgray]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[all]{hypcap}
+% \renewcommand{\subsection}[1]{\noindent\bf Aufgabe \arabic{section}.\arabic{subsection}: #1}
+\titleformat{\subsection}[hang]{\bf}{Aufgabe \arabic{section}.\arabic{subsection}:}{1em}{}[]
+\titleformat{\subsubsection}[hang]{\bf}{\hspace{1em}\alph{subsubsection})}{1em}{}[]
+
+\lstset{
+   basicstyle=\footnotesize\ttfamily,
+   language=Java,
+   breaklines=true,
+   commentstyle=\color{blue},
+   keywordstyle=\color{purple}\textbf,
+   numberstyle=\tiny\color{gray},
+   numbers=left,
+   stringstyle=\color{olive},
+}
+
+\begin{document}
+
+\fontfamily{ptm}\selectfont
+\maketitle
+
+
+\setcounter{section}{2}
+\setcounter{subsection}{0}
+\subsection{Phasen der Software-Entwicklung (16 Punkte)}
+\subsection{Modularisierung (30 Punkte)}
+
+
+\subsubsection{Bindung}
+
+\begin{itemize}[font=\ttfamily,leftmargin=2cm,align=left]
+   \item[FieldController] Funktional da der Controller nur eine Funktion
+      exportiert.
+   \item[GameBoard] Logisch, da zusammenhängende Funktionen angeboten werden,
+      die aber nur teilweise auf den selben Daten operieren, sodass keine
+      wirkliche kommunikatorische Bindung vorliegt.
+   \item[Field] Logisch, da die Operationen nicht alle auf derselben Struktur
+      operieren; das \texttt{Field} selbst ist eher die Struktur, auf der
+      Operiert wird und ist so nicht von anderne Typen abhängig. Die Klasse
+      stellt somit eine Sammlung zusammengehörender Funtkionen dar.
+   \item[GameView] Funktional, da es nur eine Funktion (\texttt{update()}) gibt.
+   \item[FieldButton] Wäre \texttt{refreshView()} private, so wäre das Modul
+      funktional gebunden. So jedoch lediglich temporal oder sequentiell, da
+      \texttt{update()} immer \texttt{refreshView()} aufruft. Da dies die
+      einzige andere Methode ist, lässt sich dies aber schwer beurteilen.
+   \item[MineSweeper] Zufällig, da die enthaltenen Funktionen nichts miteinander
+      zu tun haben. Betrachtet man nur die exportierte Funktionalität, kann man
+      von funktionaler Bindung sprechen.
+\end{itemize}
+
+\subsubsection{Kopplung}
+
+\begin{itemize}[font=\ttfamily,leftmargin=2cm,align=left]
+   \item[MineSweeper] ~ % something must be here, else line is not broken
+      \begin{itemize}[font=\ttfamily,align=left]
+         \item[GameView] Stempelkopplung, da im Konstruktor der Listener
+            übergeben wird, den beide kennen müssen.
+         \item[GameBoard] Datenkopplung (Zeile 68)
+      \end{itemize}
+   \item[GameView] ~
+      \begin{itemize}[font=\ttfamily,align=left]
+         \item[GameBoard] Stempelkopplung, wegen des
+            Konstruktoraufrufs mit einem komplexen Typ (\texttt{GridLayout})
+            sowie des Methodenaufrufs in Zeile 79.
+         \item[FieldButton] Ebenfalls Stempelkopplung, ebenfalls durch Methode
+            in Zeile 79. Der Typ \texttt{Field} muss beiden bekannt sein.
+      \end{itemize}
+   \item[FieldButton] ~
+      \begin{itemize}[font=\ttfamily,align=left]
+         \item[Field] Stempelkopplung aufgrund des
+            \texttt{addObserver(this)}-Aufrufs
+      \end{itemize}
+   \item[GameBoard] ~
+      \begin{itemize}[font=\ttfamily,align=left]
+         \item[Field] Steuerkopplung wegen des Aufrufs \texttt{new Field(true)},
+            wobei der Wert eher ein Datum als einen steuernden Schalter
+            darstellt, daher kann man auch als Datenkopplung kategorisieren.
+      \end{itemize}
+   \item[Field] ~
+      \begin{itemize}[font=\ttfamily,align=left]
+         \item[GameBoard] Datenkopplung wegen des Aufrufs in Zeile 403,
+            Stempelkopplung wegen des Aufrufs in Zeile 434.
+      \end{itemize}
+\end{itemize}
+\subsection{Design by Contract, C4J (34 Punkte)}
+
+\end{document}
