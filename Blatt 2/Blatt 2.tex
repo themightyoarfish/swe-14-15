@@ -78,12 +78,18 @@
    \item[MineSweeper] Zufällig, da die enthaltenen Funktionen nichts miteinander
       zu tun haben. Betrachtet man nur die exportierte Funktionalität, kann man
       von funktionaler Bindung sprechen.
+   \item[GameOverListener] Funktional, da nur eine Funktion vorhanden ist.
 \end{itemize}
 
 \subsubsection{Kopplung}
 
 \begin{itemize}[font=\ttfamily,leftmargin=2cm,align=left]
-   \item[MineSweeper] ~ % something must be here, else line is not broken
+   \item[FieldController] ~% something must be here, else line is not broken
+      \begin{itemize}[font=\ttfamily,align=left]
+         \item[MouseAdapter] Nicht gekoppelt, da keine Aufrufe an die
+            Superklasse außer im Konstruktor
+      \end{itemize}
+   \item[MineSweeper] ~ 
       \begin{itemize}[font=\ttfamily,align=left]
          \item[GameView] Stempelkopplung, da im Konstruktor der Listener
             übergeben wird, den beide kennen müssen.
@@ -96,6 +102,8 @@
             sowie des Methodenaufrufs in Zeile 79.
          \item[FieldButton] Ebenfalls Stempelkopplung, ebenfalls durch Methode
             in Zeile 79. Der Typ \texttt{Field} muss beiden bekannt sein.
+         \item[GameOverListener] Keine direkte Kopplung, da die Aufrufe keine
+            Argumente enthalten.
       \end{itemize}
    \item[FieldButton] ~
       \begin{itemize}[font=\ttfamily,align=left]
