@@ -1,3 +1,4 @@
+import de.vksi.c4j.Pure;
 
 public class Fraction {
 
@@ -10,10 +11,12 @@ public class Fraction {
         
     }
 
+    @Pure
     public int getNumerator() {
         return numerator;
     }
 
+    @Pure
     public int getDenominator() {
         return denominator;
     }
