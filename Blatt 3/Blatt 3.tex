@@ -1,0 +1,155 @@
+\documentclass{scrartcl}
+\title{\rmfamily Software Engineering -- Blatt 3}
+\author{Rasmus Diederichsen \and Felix Breuninger\and % ugly hack, why does \\ ... work no more?
+   \texttt{\{rdiederichse, fbreunin\}@uos.de}
+}
+\date{\today}
+\usepackage[ngerman]{babel}
+            \usepackage[table]{xcolor}
+\usepackage{microtype,
+            textcomp,
+            booktabs,
+            dingbat,
+            titlesec,
+            enumitem,
+            fullpage,
+            tikz,
+            IEEEtrantools,
+            array,
+            amsmath,
+            amssymb,
+            graphicx,
+            subcaption,
+            lmodern}
+            \usepackage[pdftitle={Software Engineering -- Blatt 3}, 
+       pdfauthor={Rasmus Diederichsen}, 
+       hyperfootnotes=true,
+       colorlinks,
+       bookmarksnumbered = true,
+       linkcolor = lightgray,
+       plainpages = false,
+       citecolor = lightgray]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[all]{hypcap}
+% \renewcommand{\subsection}[1]{\noindent\bf Aufgabe \arabic{section}.\arabic{subsection}: #1}
+\titleformat{\subsection}[hang]{\bf}{Aufgabe \arabic{section}.\arabic{subsection}:}{1em}{}[]
+\titleformat{\subsubsection}[hang]{\bf}{\hspace{1em}\alph{subsubsection})}{1em}{}[]
+
+
+\begin{document}
+
+\fontfamily{ptm}\selectfont
+\maketitle
+
+
+\setcounter{section}{3}
+\setcounter{subsection}{0}
+\subsection{Projektstrukturplan (20 Punkte)}
+
+Wir wählen einen Phasenorientieren PSP. Dies bietet sich an, da der Aufgabentext
+diese schon explizit vorgibt, was uns deshalb Arbeit erspart.\leftthumbsup
+
+\usetikzlibrary{trees,calc}
+\begin{center}
+\begin{tikzpicture}[
+  work package/.style={draw,rectangle,text width=3cm},
+  phase/.style={fill=gray!20,rounded corners=5pt,line width=1pt,text centered,font=\bf},
+  grandchild/.style={grow=down,
+  edge from parent path={(\tikzparentnode.west) -- ++(-1em,0) |- ($(\tikzparentnode.south west) + (-1em,0)$) |- (\tikzchildnode.west)}},
+  first/.style={level distance=6ex},
+  second/.style={level distance=14ex},
+  third/.style={level distance=22ex},
+  fourth/.style={level distance=30ex},
+  fifth/.style={level distance=38ex},
+  sixth/.style={level distance=46ex},
+  seventh/.style={level distance=54ex},
+  eighth/.style={level distance=62ex},
+  level 1/.style={sibling distance=4cm,level distance=2cm}
+  ]
+  % \foreach \x / \y in {first/1,second/2,third/3,fourth/4,fifth/5,sixth/6,seventh/7,eight/8,ninth/9}
+  % {\tikzstyle{\x}=[level distance=\pgfmathparse{\y * 6}\pgfmathresult em]};
+    % Parents
+    \coordinate
+    node[fill=blue!10,font=\bf,text width=6cm,draw,text centered] {Client-Server-System für Versicherung}
+      % child[grow=left] {node[work package,anchor=east]{Jim}}
+      % child[grow=right] {node[work package,anchor=west]{Jane}}
+      % child[grow=down,level distance=0ex]
+    [edge from parent fork down]
+    % Children and grandchildren
+    child{node[work package,phase] {Phase 1}
+       child[grandchild,first] {node[work package] {\textbf{A:} Funktionen erarbeiten}}
+       child[grandchild,second] {node[work package] {\textbf{B:} Funktionen einteilen}}
+       child[grandchild,third] {node[work package] {\textbf{C:} Schnittstelllen zu Fremdsystemen}}
+       child[grandchild,fourth] {node[work package] {\textbf{D:} Datenbankentwurf}}
+       child[grandchild,fifth] {node[work package] {\textbf{E:} GUI-Prototyp entwickeln}}
+ }
+    child{node[work package,phase] {Phase 2}
+       child[grandchild,first] {node[work package] {\textbf{F:} DB-Migration}}
+       child[grandchild,second] {node[work package] {\textbf{G:} DB-Test}}
+       child[grandchild,third] {node[work package] {\textbf{H:} Schnittstelllen zu Fremdsystemen}}
+       child[grandchild,fourth] {node[work package] {\textbf{I:} Clientimplementierung}}
+       child[grandchild,fifth] {node[work package] {\textbf{J:} Server-DB-Intergation}}
+       child[grandchild,sixth] {node[work package] {\textbf{K:} Client-Server-Integration}}
+       child[grandchild,seventh] {node[work package] {\textbf{L:} 1. Systemtest}}
+    }
+    child{node[work package,phase] {Phase 3}
+       child[grandchild,first] {node[work package] {\textbf{M:} Serverfunkt. überarbeiten}}
+       child[grandchild,second] {node[work package] {\textbf{N:} Ausbaufunktion.  implementieren}}
+       child[grandchild,third] {node[work package] {\textbf{O:} GUI-Fehler beheben}}
+       child[grandchild,fourth] {node[work package] {\textbf{P:} GUI für Ausbaufunkt. implementieren}}
+       child[grandchild,fifth] {node[work package] {\textbf{Q:} Vollt. Datenmigration}}
+       child[grandchild,sixth] {node[work package] {\textbf{R:} Integration Ausbaufunkt.  und Ausbau-GUI}}
+       child[grandchild,seventh] {node[work package] {\textbf{S:} 2. Systemtest (Testfiliale)}}
+       child[grandchild,eighth] {node[work package] {\textbf{T:} 2. Systemtest (Testteam)}}
+    }
+    child{node[work package,phase] {Phase 4}
+       child[grandchild,first] {node[work package] {\textbf{U:} Korrektur/Optimierung}}
+       child[grandchild,second] {node[work package] {\textbf{V:} Doku/Handbuch}}
+       child[grandchild,third] {node[work package] {\textbf{W:} Schulung}}
+       child[grandchild,fourth] {node[work package] {\textbf{X:} Deployment}}
+    };
+
+\end{tikzpicture}
+   
+\end{center}
+\subsection{Vorgangsliste (15 Punkte)}
+\begin{center}
+   \rowcolors{2}{gray!10}{white}
+   \begin{tabular}{llll}
+      \toprule
+      Bezeichner & Arbeitspaket & Abhängigkeiten & Dauer\\
+      \toprule
+      \rowcolor{gray!10}
+      A & Funktionen erarbeiten & & 2W\\
+      B & Funktionen einteilen & A & 1W\\
+      C & Schnittstelllen zu Fremdsystemen & A & 1W\\
+      D & Datenbankentwurf & & 2W \\
+      E & GUI-Prototyp entwickeln & A & 1.5W\\
+      F & DB-Migration & D & 2W \\
+      G & DB-Test & F& 1W \\
+      H & Schnittstelllen zu Fremdsystemen & F, B, C & 7W \\
+      I & Clientimplementierung & E & 5W \\
+      J & Server-DB-Intergation & H, G& 1W \\
+      K & Client-Server-Integration & I, J, & 1W \\
+      L & 1. Systemtest & K & 1W \\
+      M & Serverfunkt. überarbeiten & L, H, J& 2W \\
+      N & Ausbaufunktion.  implementieren & B, H & 4W\\
+      O & GUI-Fehler beheben & E, K & 1W \\
+      P & GUI für Ausbaufunkt. implementieren & N, O & 2W \\
+      Q & Vollt. Datenmigration & G & 2W \\
+      R & Integration Ausbaufunkt.  und Ausbau-GUI & P, N, M, O & 2W \\
+      S & 2. Systemtest (Testfiliale) & R, Q & 1W \\
+      T & 2. Systemtest (Testteam) & R, Q & 1W \\
+      U & Korrektur/Optimierung & S, T & 2W \\
+      V & Doku/Handbuch & U & 2W \\
+      W & Schulung & U, V & 2W \\
+      X & Deployment &  V, W & 4W\\
+      \bottomrule
+   \end{tabular}
+\end{center}
+\subsection{Netzplan (25 Punkte)}
+\subsection{Gantt-Diagramm (20 Punkte)}
+\subsection{Firmenorganisation (10 Punkte)}
+
+\end{document}
