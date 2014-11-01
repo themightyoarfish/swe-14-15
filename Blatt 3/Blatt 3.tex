@@ -5,9 +5,11 @@
 }
 \date{\today}
 \usepackage[ngerman]{babel}
-            \usepackage[table]{xcolor}
+\usepackage[table]{xcolor}
+\usepackage{arydshln}
 \usepackage{microtype,
             textcomp,
+            multirow,
             booktabs,
             dingbat,
             titlesec,
@@ -80,7 +82,7 @@ diese schon explizit vorgibt, was uns deshalb Arbeit erspart.\leftthumbsup
     child{node[work package,phase] {Phase 1}
        child[grandchild,first] {node[work package] {\textbf{A:} Funktionen erarbeiten}}
        child[grandchild,second] {node[work package] {\textbf{B:} Funktionen einteilen}}
-       child[grandchild,third] {node[work package] {\textbf{C:} Schnittstelllen zu Fremdsystemen}}
+       child[grandchild,third] {node[work package] {\textbf{C:} Schnittstellen zu Fremdsystemen}}
        child[grandchild,fourth] {node[work package] {\textbf{D:} Datenbankentwurf}}
        child[grandchild,fifth] {node[work package] {\textbf{E:} GUI-Prototyp entwickeln}}
  }
@@ -116,35 +118,39 @@ diese schon explizit vorgibt, was uns deshalb Arbeit erspart.\leftthumbsup
 \subsection{Vorgangsliste (15 Punkte)}
 \begin{center}
    \rowcolors{2}{gray!10}{white}
-   \begin{tabular}{llll}
+   \renewcommand{\arraystretch}{1.5}
+   \begin{tabular}{l:lllr}
       \toprule
-      Bezeichner & Arbeitspaket & Abhängigkeiten & Dauer\\
-      \toprule
-      \rowcolor{gray!10}
-      A & Funktionen erarbeiten & & 2W\\
-      B & Funktionen einteilen & A & 1W\\
-      C & Schnittstelllen zu Fremdsystemen & A & 1W\\
-      D & Datenbankentwurf & & 2W \\
-      E & GUI-Prototyp entwickeln & A & 1.5W\\
-      F & DB-Migration & D & 2W \\
-      G & DB-Test & F& 1W \\
-      H & Schnittstelllen zu Fremdsystemen & F, B, C & 7W \\
-      I & Clientimplementierung & E & 5W \\
-      J & Server-DB-Intergation & H, G& 1W \\
-      K & Client-Server-Integration & I, J, & 1W \\
-      L & 1. Systemtest & K & 1W \\
-      M & Serverfunkt. überarbeiten & L, H, J& 2W \\
-      N & Ausbaufunktion.  implementieren & B, H & 4W\\
-      O & GUI-Fehler beheben & E, K & 1W \\
-      P & GUI für Ausbaufunkt. implementieren & N, O & 2W \\
-      Q & Vollt. Datenmigration & G & 2W \\
-      R & Integration Ausbaufunkt.  und Ausbau-GUI & P, N, M, O & 2W \\
-      S & 2. Systemtest (Testfiliale) & R, Q & 1W \\
-      T & 2. Systemtest (Testteam) & R, Q & 1W \\
-      U & Korrektur/Optimierung & S, T & 2W \\
-      V & Doku/Handbuch & U & 2W \\
-      W & Schulung & U, V & 2W \\
-      X & Deployment &  V, W & 4W\\
+      &Bezeichner & Arbeitspaket & Abhängigkeiten & Dauer\\
+      \midrule
+      \cellcolor{white}&A & Funktionen erarbeiten & & 2W\\
+      \cellcolor{white}&B & Funktionen einteilen & A & 1W\\
+      \cellcolor{white}&C & Schnittstelllen zu Fremdsystemen & A & 1W\\
+      \cellcolor{white}&D & Datenbankentwurf & & 2W \\
+      \cellcolor{white}\multirow{-5}{*}{\rotatebox[origin=c]{90}{Phase 1}}
+      &E & GUI-Prototyp entwickeln & A & 1.5W\\
+      \midrule
+      \cellcolor{white}&F & DB-Migration & D & 2W \\
+      \cellcolor{white}&G & DB-Test & F& 1W \\
+      \cellcolor{white}&H & Schnittstelllen zu Fremdsystemen & F, B, C & 7W \\
+      \cellcolor{white}&I & Clientimplementierung & E & 5W \\
+      \cellcolor{white}&J & Server-DB-Intergation & H, G& 1W \\
+      \cellcolor{white}&K & Client-Server-Integration & I, J & 1W \\
+      \cellcolor{white}\multirow{-7}{*}{\rotatebox[origin=c]{90}{Phase 2}}&L & 1. Systemtest & K & 1W \\
+      \midrule
+      \cellcolor{white}&M & Serverfunkt. überarbeiten & L, H, J& 2W \\
+      \cellcolor{white}&N & Ausbaufunktion.  implementieren & B, H & 4W\\
+      \cellcolor{white}&O & GUI-Fehler beheben & E, K & 1W \\
+      \cellcolor{white}&P & GUI für Ausbaufunkt. implementieren & N, O & 2W \\
+      \cellcolor{white}&Q & Vollt. Datenmigration & G & 2W \\
+      \cellcolor{white}&R & Integration Ausbaufunkt.  und Ausbau-GUI & P, N, M, O & 2W \\
+      \cellcolor{white}&S & 2. Systemtest (Testfiliale) & R, Q & 1W \\
+      \cellcolor{white}\multirow{-8}{*}{\rotatebox[origin=c]{90}{Phase 3}}&T & 2. Systemtest (Testteam) & R, Q & 1W \\
+      \midrule
+      \cellcolor{white}&U & Korrektur/Optimierung & S, T & 2W \\
+      \cellcolor{white}&V & Doku/Handbuch & U & 2W \\
+      \cellcolor{white}&W & Schulung & U, V & 2W \\
+      \cellcolor{white}\multirow{-4}{*}{\rotatebox[origin=c]{90}{Phase 4}}&X & Deployment &  V, W & 4W\\
       \bottomrule
    \end{tabular}
 \end{center}
