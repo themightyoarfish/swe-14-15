@@ -90,9 +90,10 @@ diese schon explizit vorgibt, was uns deshalb Arbeit erspart.\leftthumbsup
       child{node[work package,phase] {Phase 2}
          child[grandchild,first] {node[work package] {\textbf{F:} DB-Migration}}
          child[grandchild,second] {node[work package] {\textbf{G:} DB-Test}}
-         child[grandchild,third] {node[work package] {\textbf{H:} Schnittstelllen zu Fremdsystemen}}
+         child[grandchild,third] {node[work package] {\textbf{H:} Schnittstellen zu Fremdsystemen}}
          child[grandchild,fourth] {node[work package] {\textbf{I:} Clientimplementierung}}
-         child[grandchild,fifth] {node[work package] {\textbf{J:} Server-DB-Intergation}}
+         child[grandchild,fifth] {node[work package] {\textbf{J:}
+         Server-DB-Integration}}
          child[grandchild,sixth] {node[work package] {\textbf{K:} Client-Server-Integration}}
          child[grandchild,seventh] {node[work package] {\textbf{L:} 1. Systemtest}}
       }
@@ -126,14 +127,14 @@ diese schon explizit vorgibt, was uns deshalb Arbeit erspart.\leftthumbsup
       \midrule
       \cellcolor{white}&A & Funktionen erarbeiten & & 2W\\
       \cellcolor{white}&B & Funktionen einteilen & A & 1W\\
-      \cellcolor{white}&C & Schnittstelllen zu Fremdsystemen & A & 1W\\
+      \cellcolor{white}&C & Schnittstellen zu Fremdsystemen & A & 1W\\
       \cellcolor{white}&D & Datenbankentwurf & & 2W \\
       \cellcolor{white}\multirow{-5}{*}{\rotatebox[origin=c]{90}{Phase 1}}
       &E & GUI-Prototyp entwickeln & A & 1.5W\\
       \midrule
       \cellcolor{white}&F & DB-Migration & D & 2W \\
       \cellcolor{white}&G & DB-Test & F& 1W \\
-      \cellcolor{white}&H & Schnittstelllen zu Fremdsystemen & F, B, C & 7W \\
+      \cellcolor{white}&H & Schnittstellen zu Fremdsystemen & F, B, C & 7W \\
       \cellcolor{white}&I & Clientimplementierung & E & 5W \\
       \cellcolor{white}&J & Server-DB-Intergation & H, G& 1W \\
       \cellcolor{white}&K & Client-Server-Integration & I, J & 1W \\
@@ -304,14 +305,34 @@ Legende:
    \end{tikzpicture}
 \end{center}
 \subsection{Gantt-Diagramm (20 Punkte)}
-%\includegraphics[width=\linewidth]{gantt}
-%\includepdf[width=\linewidth]{gantt.pdf}
+
  \includegraphics[width=\linewidth]{gantt.pdf}
 
 
 \subsection{Firmenorganisation (10 Punkte)}
-Bei kleineren Projekten bietet es sich an, Chief-Programmer-Teams zur Umsetzung einzusetzen. Diese vereinen die Stärken von hierarchischen und demokratischen Teams und gewährleisten somit kurze Kommunikationswege in Kombination mit einer kollaborativen aber dennoch strukturierten Projektumsetzung.
+\subsubsection*{Firmenorganisation}
 
-Für große Projekte lässt sich eine gewisse hierarchische Anordnung nicht vermeiden, empfehlenswert ist also eine Mixed Control-Organisation. Diese ist auch in großen Teams umsetzbar und verwendet hierarchische Strukturen zwischen den Hierarchie-Ebenen, wohingegen innerhalb einer Hierarchie-Ebene demokratische Strukturen eingesetzt werden und somit erneut die Vor- und Nachteile in sinnvollem Verhältnis zueinander stehen.
+Im Bezug auf die Gesamtorganisation der Firma wäre eine funktionale Organisation
+durchaus sinnig, da viele Mitarbeiter vorhanden sind, die an vielen
+verschiedenen Baustellen arbeiten, welche unterschiedliche Spezialisten
+benötigen (UX-Designer, Datenbankexperte, Servertechniker etc). Diese
+Spezialisten lassen sich dann auch in verschiedene Abteilungen einteilen. Da bei den
+vielen Arbeitspaketen jedoch unterschiedliche Kombinationen dieser Spezialisten
+zwecks Integration nötig sind, bieten sich orthogonal dazu temporäre
+Entwicklerteams an, was zu einer Matrixorganisation führt.
+
+\subsubsection*{Teamorganisation}
+Bei kleineren Projekten bietet es
+sich an, Chief-Programmer-Teams zur Umsetzung einzusetzen. Diese vereinen die
+Stärken von hierarchischen und demokratischen Teams und gewährleisten somit
+kurze Kommunikationswege in Kombination mit einer kollaborativen aber dennoch
+strukturierten Projektumsetzung.
+
+Für große Projekte lässt sich eine gewisse hierarchische Anordnung nicht
+vermeiden, empfehlenswert ist also eine Mixed Control-Organisation. Diese ist
+auch in großen Teams umsetzbar und verwendet hierarchische Strukturen zwischen
+den Hierarchie-Ebenen, wohingegen innerhalb einer Hierarchie-Ebene demokratische
+Strukturen eingesetzt werden und somit erneut die Vor- und Nachteile in
+sinnvollem Verhältnis zueinander stehen.
 
 \end{document}
