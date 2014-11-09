@@ -7,9 +7,9 @@
 \usepackage[ngerman]{babel}
 \usepackage[table]{xcolor}
 \usepackage{arydshln}
-\usepackage{microtype, textcomp, xifthen, multirow, booktabs, dingbat,
+\usepackage{marvosym, microtype, textcomp, xifthen, multirow, booktabs, dingbat,
    titlesec, enumitem, fullpage, tikz, IEEEtrantools, array, amsmath,
-   amssymb, graphicx, subcaption, lmodern}
+amssymb, graphicx, subcaption, lmodern,pgfplots}
 \usepackage[pdftitle={Software Engineering -- Blatt 4}, 
    pdfauthor={Rasmus Diederichsen, Felix Breuninger}, 
    hyperfootnotes=true,
@@ -44,15 +44,15 @@ Es gilt für den Kommunikationsaufwand
 \begin{equation*}
    k = 2n \cdot {n \choose 2} = 2 \frac{n!}{2(n-2)!} = n(n-1)
 \end{equation*}
- Der Gesamtaufwand ist gegeben durch
- \begin{equation*}
-    f_E(n) = k \frac{600}{n} = n^2 - n + \frac{600}{n}
- \end{equation*}
- Die Ableitung
- \begin{equation*}
-    f_E^\prime(n) = 2n -1 - 600n^{-2}
- \end{equation*}
- besitzt als einzige positive reelle Nullstelle $n_0 \approx 6.8652$.
+Der Gesamtaufwand ist gegeben durch
+\begin{equation*}
+   f_E(n) = k \frac{600}{n} = n^2 - n + \frac{600}{n}
+\end{equation*}
+Die Ableitung
+\begin{equation*}
+   f_E^\prime(n) = 2n -1 - 600n^{-2}
+\end{equation*}
+besitzt als einzige positive reelle Nullstelle $n_0 \approx 6.8652$.
 
 Der Aufwand $f_E(n)$ bei 3 Mitarbeitern beträgt 206 Stunden pro Mitarbeiter, was
 26 Tagen entspricht (bei 8 Stunden täglicher Arbeit).
@@ -75,6 +75,66 @@ Hier handelt es sich um ein leichtes Projekt, daher
 \begin{equation*}
    V\kern-3ptD = \frac{1000}{450} \cdot 1.5^{1.04} \cdot 1.05 \cdot 0.9 \approx 3.2 \text{PM}
 \end{equation*}
+
 \subsection{Function-Points (25 Punkte)}
+
+\subsubsection{}
+Zuächst werden die Funktionen kategorisiert und auf ungewichtete Function Points
+abgebildet.
+
+\begin{itemize}[font=\textbf,align=left]
+   \item[Kontakte eingeben:] Mittelschwere Eingabe $\Rightarrow$ 4
+   \item[Kontakte verwalen:] Einfache Datenbestandsfunktion $\Rightarrow$ 7
+   \item[Kontakte anzeigen:] Schwierige Abfrage $\Rightarrow$ 6
+   \item[Kontakte analysieren:] Schwierige Ausgabe $\Rightarrow$ 7
+\end{itemize}
+
+Die ungewichteten FPs sind also
+\begin{equation*}
+   FP_{\text{ungew}} = 4 + 7 + 6 +7 = 24
+\end{equation*}
+
+Die Einflussfaktoren bestehen in
+\begin{itemize}[font=\textbf,align=left]
+   \item[Komplexe Berechnungen:] Starker Einflussfaktor $\Rightarrow$ 4
+   \item[Verschiedene Plattformen:] Starker Einflussfaktor $\Rightarrow$ 4
+   \item[End-User-Effizienz:] Kritischer Einflussfaktor $\Rightarrow$ 4
+   \item[Weitere Faktoren:] 3-mal stark, 2-mal mittel, 2-mal schwach
+      $\Rightarrow 3\cdot 4 + 2\cdot 4 + 2\cdot 2 = 22$
+\end{itemize}
+
+Die gewichteten Function Points errechnen sich zu 
+\begin{IEEEeqnarray*}{rCl}
+   FP_{\text{gew}} & = & FP_{\text{ungew}} \cdot ((4+4+5+22)\cdot .01 + .65) \\
+                   & = & 24 \cdot (.35 + .65) \\
+                   & = & 24
+\end{IEEEeqnarray*}
+
+Als Aufwandsschätzung ergibt sich $24\cdot 960\text{\EUR}=23040\text{\EUR} $.
+
+\subsubsection{}
+
+Laut Übung (glaube ich), ist der Zusammenhang zwischen FPs und PMs ungefähr
+exponentiell. Je mehr Funktionen, desto mehr Aufwand muss für die Integration
+der Teile veranschlag werden, zumindest in den meisten Pojekten, weshalb der
+Zusammenhang nicht linear ist.
+\begin{center}
+   \begin{tikzpicture}
+      \begin{axis}[
+            axis lines=left,
+            scaled ticks=false,
+            xmin=0,
+            xmax=6
+         ]
+         % density of Normal distribution:
+         \addplot[black]
+         {exp(x/3)};
+      \end{axis}
+   \end{tikzpicture}
+\end{center}
+
+Die einzige Vorraussetzung für die Sinnhaftigkeit der FP-Analyse ist das
+Vorhandensein von Erfahrungswerten für die Abbildung $FP \mapsto PM$, wenn man
+die Funktionskategorien und deren Bewertung als sinnvoll vorraussetzt.
 
 \end{document}
