@@ -7,25 +7,11 @@
 \usepackage[ngerman]{babel}
 \usepackage[table]{xcolor}
 \usepackage{arydshln}
-\usepackage{microtype,
-   textcomp,
-   xifthen,
-   multirow,
-   booktabs,
-   dingbat,
-   titlesec,
-   enumitem,
-   fullpage,
-   tikz,
-   IEEEtrantools,
-   array,
-   amsmath,
-   amssymb,
-   graphicx,
-   subcaption,
-lmodern}
-\usepackage[pdftitle={Software Engineering -- Blatt 3}, 
-   pdfauthor={Rasmus Diederichsen}, 
+\usepackage{microtype, textcomp, xifthen, multirow, booktabs, dingbat,
+   titlesec, enumitem, fullpage, tikz, IEEEtrantools, array, amsmath,
+   amssymb, graphicx, subcaption, lmodern}
+\usepackage[pdftitle={Software Engineering -- Blatt 4}, 
+   pdfauthor={Rasmus Diederichsen, Felix Breuninger}, 
    hyperfootnotes=true,
    colorlinks,
    bookmarksnumbered = true,
@@ -53,6 +39,25 @@ citecolor = lightgray]{hyperref}
 \subsection{Projekt-Ressourcen (20 Punkte)}
 
 \subsection{Brook'sches Gesetz (15 Punkte)}
+
+Es gilt für den Kommunikationsaufwand
+\begin{equation*}
+   k = 2n \cdot {n \choose 2} = 2 \frac{n!}{2(n-2)!} = n(n-1)
+\end{equation*}
+ Der Gesamtaufwand ist gegeben durch
+ \begin{equation*}
+    f_E(n) = k \frac{600}{n} = n^2 - n + \frac{600}{n}
+ \end{equation*}
+ Die Ableitung
+ \begin{equation*}
+    f_E^\prime(n) = 2n -1 - 600n^{-2}
+ \end{equation*}
+ besitzt als einzige positive reelle Nullstelle $n_0 \approx 6.8652$.
+
+Der Aufwand $f_E(n)$ bei 3 Mitarbeitern beträgt 206 Stunden pro Mitarbeiter, was
+26 Tagen entspricht (bei 8 Stunden täglicher Arbeit).
+Bei 7 Mitarbeitern verringert er sich auf $f_E(7)\approx 127,11$ Stunden $\le
+16$ Tage pro Mitarbeiter. Durch die Aufstockung hat man also 10 Tage gespart.
 
 \subsection{COCOMO (15 Punkte)}
 
