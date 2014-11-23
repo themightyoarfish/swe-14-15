@@ -74,7 +74,7 @@ Bei 7 Mitarbeitern verringert er sich auf $f_E(7)\approx 127,11$ Stunden $\le
 
 \subsubsection{}
 
-Da es sich um ein schweres Projekt handelt, beträgt die vorraussichtliche Dauer
+Da es sich um ein schweres Projekt handelt, beträgt die voraussichtliche Dauer
 
 \begin{equation*}
    V\kern-3ptD = \frac{1000}{350} \cdot 17^{1.28} \approx 107 \text{PM}
@@ -90,7 +90,7 @@ Hier handelt es sich um ein leichtes Projekt, daher
 \subsection{Function-Points (25 Punkte)}
 
 \subsubsection{}
-Zuächst werden die Funktionen kategorisiert und auf ungewichtete Function Points
+Zunächst werden die Funktionen kategorisiert und auf ungewichtete Function Points
 abgebildet.
 
 \begin{itemize}[font=\textbf,align=left]
@@ -127,7 +127,7 @@ Als Aufwandsschätzung ergibt sich $24\cdot 960\text{\EUR}=23040\text{\EUR} $.
 
 Laut Übung (glaube ich), ist der Zusammenhang zwischen FPs und PMs ungefähr
 exponentiell. Je mehr Funktionen, desto mehr Aufwand muss für die Integration
-der Teile veranschlag werden, zumindest in den meisten Pojekten, weshalb der
+der Teile veranschlagt werden, zumindest in den meisten Projekten, weshalb der
 Zusammenhang nicht linear ist.
 \begin{center}
    \begin{tikzpicture}
@@ -137,15 +137,13 @@ Zusammenhang nicht linear ist.
             xmin=0,
             xmax=6
          ]
-         % density of Normal distribution:
-         \addplot[black]
-         {exp(x/3)};
+         \addplot[black] {exp(x/3)};
       \end{axis}
    \end{tikzpicture}
 \end{center}
 
-Die einzige Vorraussetzung für die Sinnhaftigkeit der FP-Analyse ist das
+Die einzige Voraussetzung für die Sinnhaftigkeit der FP-Analyse ist das
 Vorhandensein von Erfahrungswerten für die Abbildung $FP \mapsto PM$, wenn man
-die Funktionskategorien und deren Bewertung als sinnvoll vorraussetzt.
+die Funktionskategorien und deren Bewertung als sinnvoll voraussetzt.
 
 \end{document}

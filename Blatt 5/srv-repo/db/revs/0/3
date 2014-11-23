@@ -1,0 +1,67 @@
+id: 2-2.0-3.r3/0
+type: file
+pred: 2-2.0-2.r2/36
+count: 1
+text: 2 0 23 11 e1735158246b267bdc0ec11b0b4c1ecc e32c72173d6151f438f6ff3a85c56a46ed99ca81 1-1/_4
+cpath: /project/trunk/new_file_moved.txt
+copyfrom: 2 /project/trunk/new_file.txt
+
+PLAIN
+K 18
+new_file_moved.txt
+V 17
+file 2-2.0-3.r3/0
+END
+ENDREP
+id: 4-1.0-2.r3/300
+type: dir
+pred: 4-1.0-2.r2/293
+count: 2
+text: 3 236 51 51 d26f77eb6527faa496017fbce0134004
+cpath: /project/trunk
+copyroot: 2 /project/trunk
+
+PLAIN
+K 8
+branches
+V 14
+dir 2-1.0.r1/0
+K 4
+tags
+V 15
+dir 5-1.0.r1/74
+K 5
+trunk
+V 18
+dir 4-1.0-2.r3/300
+END
+ENDREP
+id: 0-1.0.r3/574
+type: dir
+pred: 0-1.0.r2/566
+count: 2
+text: 3 460 101 101 353bc5133d22a8c9af67ee5add231e54
+cpath: /project
+copyroot: 0 /
+
+PLAIN
+K 7
+project
+V 16
+dir 0-1.0.r3/574
+END
+ENDREP
+id: 0.0.r3/764
+type: dir
+pred: 0.0.r2/756
+count: 3
+text: 3 713 38 38 d5da461c93b3bc0ef687c6fbac52880f
+cpath: /
+copyroot: 0 /
+
+2-2.0-2.r2/36 delete-file false false /project/trunk/new_file.txt
+
+2-2._0.t2-2 add-file false false /project/trunk/new_file_moved.txt
+2 /project/trunk/new_file.txt
+
+764 890

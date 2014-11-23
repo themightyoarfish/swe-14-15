@@ -1,0 +1,66 @@
+DELTA
+SVNENDREP
+id: 2-5.0-2.r5/17
+type: file
+count: 0
+text: 5 0 4 0 d41d8cd98f00b204e9800998ecf8427e da39a3ee5e6b4b0d3255bfef95601890afd80709 4-4/_4
+cpath: /project/trunk/another_file.txt
+copyroot: 2 /project/trunk
+
+PLAIN
+K 16
+another_file.txt
+V 18
+file 2-5.0-2.r5/17
+END
+ENDREP
+id: 4-1.0-2.r5/280
+type: dir
+pred: 4-1.0-2.r4/17
+count: 4
+text: 5 217 50 50 c8849181416376ac55306eba4ce6494d
+cpath: /project/trunk
+copyroot: 2 /project/trunk
+
+PLAIN
+K 8
+branches
+V 14
+dir 2-1.0.r1/0
+K 4
+tags
+V 15
+dir 5-1.0.r1/74
+K 5
+trunk
+V 18
+dir 4-1.0-2.r5/280
+END
+ENDREP
+id: 0-1.0.r5/553
+type: dir
+pred: 0-1.0.r4/285
+count: 4
+text: 5 439 101 101 4113e385f382912396a3562b32f70342
+cpath: /project
+copyroot: 0 /
+
+PLAIN
+K 7
+project
+V 16
+dir 0-1.0.r5/553
+END
+ENDREP
+id: 0.0.r5/743
+type: dir
+pred: 0.0.r4/475
+count: 5
+text: 5 692 38 38 40e780021cee59b8516883e9f41303a0
+cpath: /
+copyroot: 0 /
+
+_2.0-2.t4-4 add-file true false /project/trunk/another_file.txt
+
+
+743 869

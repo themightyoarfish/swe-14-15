@@ -1,0 +1,79 @@
+id: 2-5.0-2.r10/0
+type: file
+pred: 2-5.0-2.r8/52
+count: 2
+text: 7 0 38 26 367e400eb56143c82f015842e775e20b 5d6b38638539283b492d73f1600c5c71257a7433 9-9/_3
+cpath: /project/trunk/another_file.txt
+copyroot: 2 /project/trunk
+
+PLAIN
+K 16
+another_file.txt
+V 18
+file 2-5.0-2.r10/0
+END
+ENDREP
+PLAIN
+K 13
+svn:mergeinfo
+V 25
+/project/branches/dev:6-9
+END
+ENDREP
+id: 4-1.0-2.r10/352
+type: dir
+pred: 4-1.0-2.r8/337
+count: 6
+text: 10 222 50 50 b83a8d8e87f066869bb8f96fc2a7d2ac
+props: 10 285 54 0 53f228619963e76a90961d553e9d4347
+cpath: /project/trunk
+copyroot: 2 /project/trunk
+minfo-cnt: 1
+minfo-here: y
+
+PLAIN
+K 8
+branches
+V 16
+dir 2-1.0.r9/357
+K 4
+tags
+V 15
+dir 5-1.0.r1/74
+K 5
+trunk
+V 19
+dir 4-1.0-2.r10/352
+END
+ENDREP
+id: 0-1.0.r10/710
+type: dir
+pred: 0-1.0.r9/632
+count: 9
+text: 10 593 104 104 61ca8507dc922da72aea4ee871fc2d2f
+cpath: /project
+copyroot: 0 /
+minfo-cnt: 2
+
+PLAIN
+K 7
+project
+V 17
+dir 0-1.0.r10/710
+END
+ENDREP
+id: 0.0.r10/916
+type: dir
+pred: 0.0.r9/835
+count: 10
+text: 10 864 39 39 986cb30d362b084768ea1c3c0228162d
+cpath: /
+copyroot: 0 /
+minfo-cnt: 2
+
+4-1.0-2.t9-9 modify-dir false true /project/trunk
+
+2-5.0-2.t9-9 modify-file true false /project/trunk/another_file.txt
+
+
+916 1058
