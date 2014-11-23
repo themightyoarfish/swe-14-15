@@ -1,0 +1,65 @@
+id: 4-1.0-6.r6/0
+type: dir
+pred: 4-1.0-2.r5/280
+count: 5
+text: 5 217 50 50 c8849181416376ac55306eba4ce6494d
+cpath: /project/branches/dev
+copyfrom: 5 /project/trunk
+
+PLAIN
+K 3
+dev
+V 16
+dir 4-1.0-6.r6/0
+END
+ENDREP
+id: 2-1.0.r6/212
+type: dir
+pred: 2-1.0.r1/0
+count: 1
+text: 6 165 34 34 98a57f5059b34c5183e1d8c2070d6be0
+cpath: /project/branches
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 16
+dir 2-1.0.r6/212
+K 4
+tags
+V 15
+dir 5-1.0.r1/74
+K 5
+trunk
+V 18
+dir 4-1.0-2.r5/280
+END
+ENDREP
+id: 0-1.0.r6/472
+type: dir
+pred: 0-1.0.r5/553
+count: 5
+text: 6 356 103 103 c07bb14f82aeff6b667463af3d2caa94
+cpath: /project
+copyroot: 0 /
+
+PLAIN
+K 7
+project
+V 16
+dir 0-1.0.r6/472
+END
+ENDREP
+id: 0.0.r6/662
+type: dir
+pred: 0.0.r5/743
+count: 6
+text: 6 611 38 38 6de147d0e74e5f8ba31a2b44055be154
+cpath: /
+copyroot: 0 /
+
+4-1._0.t5-5 add-dir false false /project/branches/dev
+5 /project/trunk
+
+662 788

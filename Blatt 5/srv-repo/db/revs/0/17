@@ -1,0 +1,62 @@
+PLAIN
+K 13
+svn:mergeinfo
+V 31
+/project/branches/dev:6-9,11-16
+END
+ENDREP
+id: 4-1.0-2.r17/73
+type: dir
+pred: 4-1.0-2.r15/435
+count: 11
+text: 15 298 51 51 e7edad1f7d44cba742a61d7b40bf95f3
+props: 17 0 60 0 a929f99ee0ed9545141044956a1389a7
+cpath: /project/trunk
+copyroot: 2 /project/trunk
+minfo-cnt: 1
+minfo-here: y
+
+PLAIN
+K 8
+branches
+V 17
+dir 2-1.0.r16/681
+K 4
+tags
+V 15
+dir 5-1.0.r1/74
+K 5
+trunk
+V 18
+dir 4-1.0-2.r17/73
+END
+ENDREP
+id: 0-1.0.r17/430
+type: dir
+pred: 0-1.0.r16/961
+count: 16
+text: 17 313 104 104 dcd37f8bd3f81c12c505f4d02bba519d
+cpath: /project
+copyroot: 0 /
+minfo-cnt: 2
+
+PLAIN
+K 7
+project
+V 17
+dir 0-1.0.r17/430
+END
+ENDREP
+id: 0.0.r17/638
+type: dir
+pred: 0.0.r16/1169
+count: 17
+text: 17 586 39 39 3661eaa5b6ad5c7bdf5a1a8396348011
+cpath: /
+copyroot: 0 /
+minfo-cnt: 2
+
+4-1.0-2.t16-g modify-dir false true /project/trunk
+
+
+638 782

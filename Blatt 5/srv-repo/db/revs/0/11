@@ -1,0 +1,71 @@
+id: 4-1.0-11.r11/0
+type: dir
+pred: 4-1.0-2.r10/352
+count: 7
+text: 10 222 50 50 b83a8d8e87f066869bb8f96fc2a7d2ac
+props: 10 285 54 0 53f228619963e76a90961d553e9d4347
+cpath: /project/branches/dev
+copyfrom: 10 /project/trunk
+minfo-cnt: 1
+minfo-here: y
+
+PLAIN
+K 3
+dev
+V 18
+dir 4-1.0-11.r11/0
+END
+ENDREP
+id: 2-1.0.r11/298
+type: dir
+pred: 2-1.0.r9/357
+count: 4
+text: 11 249 36 36 8cf2a13698aa13d58c32a6097219831f
+cpath: /project/branches
+copyroot: 0 /
+minfo-cnt: 1
+
+PLAIN
+K 8
+branches
+V 17
+dir 2-1.0.r11/298
+K 4
+tags
+V 15
+dir 5-1.0.r1/74
+K 5
+trunk
+V 19
+dir 4-1.0-2.r10/352
+END
+ENDREP
+id: 0-1.0.r11/577
+type: dir
+pred: 0-1.0.r10/710
+count: 10
+text: 11 459 105 105 518150bd07304009131daa28617eae2a
+cpath: /project
+copyroot: 0 /
+minfo-cnt: 2
+
+PLAIN
+K 7
+project
+V 17
+dir 0-1.0.r11/577
+END
+ENDREP
+id: 0.0.r11/785
+type: dir
+pred: 0.0.r10/916
+count: 11
+text: 11 733 39 39 bdcf4a8c2f3399c58ace8c322a46752a
+cpath: /
+copyroot: 0 /
+minfo-cnt: 2
+
+4-1._0.t10-a replace-dir false false /project/branches/dev
+10 /project/trunk
+
+785 928
