@@ -26,7 +26,7 @@ citecolor = lightgray]{hyperref}
 
 \lstset{
    frame=single,
-   basicstyle=\ttfamily,
+   basicstyle=\ttfamily\small,
    frameround=tttt,
    backgroundcolor=\color{lightgray!10}
 }
@@ -87,7 +87,10 @@ svn copy file://<path to repo>/<project name>/trunk  \
          -m ``<message>''
 \end{lstlisting} . Hierbei wird ein neuer Branch 
 \texttt{dev} auf dem Server erstellt. Nach einem \texttt{update} kann man nun
-darin arbeiten. Will man den Branch wieder in den \texttt{trunk} mergen,
+darin arbeiten. Nach dem selben Muster erstellt man Tags als namentlich
+ausgezeichnete Unterverzeichnisse von \texttt{tags}.
+
+Will man den Branch wieder in den \texttt{trunk} mergen,
 navigiert man in ihn hinein (in der lokalen Kopie) und führt
 \begin{lstlisting}
 svn merge ^/<project name>/trunk
