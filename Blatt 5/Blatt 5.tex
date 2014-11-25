@@ -100,7 +100,7 @@ im Verzeichnis \texttt{b2} befindet und
 \begin{lstlisting}
 svn merge ^/<project name>/b1
 \end{lstlisting}
-aufruft. Äderungen in \texttt{b1} werden so in \texttt{b2} übertragen. Will man
+aufruft. Änderungen in \texttt{b1} werden so in \texttt{b2} übertragen. Will man
 einen privaten Branch wieder in den \texttt{trunk} mergen, ruft man
 \begin{lstlisting}
 svn merge --reintegrate ^/<project name>[/branches]/<private branch>
@@ -109,4 +109,113 @@ Wurden an derselben Datei in beiden Branches unvereinbare Änderungen
 durchgeführt, so müssen diese aufgelöst werden, z.B. manuell. Nachdem man
 Konflikte bereinigt hat, kann man die Änderungen \texttt{commit}ten und den
 obsoleten privaten Branch löschen.
+
+
+\subsubsection{GIT}
+Durch Aufruf von
+\begin{lstlisting}
+git init
+\end{lstlisting} 
+wird das aktuelle Arbeitsverzeichnis zu einem neuen Repository deklariert. Durch
+\begin{lstlisting}
+git clone <url>
+\end{lstlisting} 
+wird das Remote-Repository unter \texttt{url} in das aktuelle Arbeitsverzeichnis gespiegelt.
+
+\vspace{1.5\baselineskip}
+Ein bestehendes Arbeitsverzeichnis kann aktualisiert werden durch
+\begin{lstlisting}
+git fetch
+git merge
+\end{lstlisting} 
+oder alternativ durch 
+\begin{lstlisting}
+git pull
+\end{lstlisting} 
+welches beide o.g. Befehle in Einem zusammenfasst.
+
+\vspace{1.5\baselineskip}
+Dateien können einem lokalen Repository hinzugefügt werden durch
+\begin{lstlisting}
+git add <file1> <file2> ...
+\end{lstlisting}
+und darauf folgend, neben allen weiteren Änderungen gegenüber des Remote-Repositories, durch
+\begin{lstlisting}
+git commit -am <message>
+\end{lstlisting}
+als neuer Snapshot mit der Bemerkung \texttt{message} angelegt. Die angelegten Snapshots werden mit
+\begin{lstlisting}
+git push <alias> <branch>
+\end{lstlisting}
+an die Remote-Quelle \texttt{alias} (im üblichen Fall \texttt{origin}) vom lokalen \texttt{branch}-Zweig übertragen und dort als \texttt{branch}-Zweig angelegt.
+
+\vspace{1.5\baselineskip}
+Lokale Änderungen können zurückgesetzt werden auf den Stand des letzten commits durch
+\begin{lstlisting}
+git checkout -- <file1>
+\end{lstlisting}
+für eine einzelne Datei oder
+\begin{lstlisting}
+git reset --hard HEAD
+\end{lstlisting}
+für das gesamte Repository.
+
+\vspace{1.5\baselineskip}
+Einzelne Dateien oder Ordner können umbenannt/verschoben werden durch
+\begin{lstlisting}
+mv <file1> <file2>
+git add <file2>
+git rm <file1>
+\end{lstlisting}
+was als
+\begin{lstlisting}
+git mv <file1> <file2>
+\end{lstlisting}
+zusammengefasst werden kann. Dateien können gelöscht werden durch
+\begin{lstlisting}
+git rm <file1>
+\end{lstlisting}
+
+\vspace{1.5\baselineskip}
+Um dem HEAD, also dem aktuellsten commit einen Tag \texttt{name} mit Anmerkung \texttt{message} hinzuzufügen, wird 
+\begin{lstlisting}
+git tag -a <name> -m <message>
+\end{lstlisting}
+ausgeführt. Ein Tag kann auch einem speziellen commit hinzugefügt werden durch
+\begin{lstlisting}
+git tag -a <name> -m <message> <commit>
+\end{lstlisting}
+und eine Liste aller Tags kann mit
+\begin{lstlisting}
+git tag
+\end{lstlisting}
+eingesehen werden. Um Tags auch remote verfügbar zu machen, wird push mit dem Parameter --tags ausgeführt
+\begin{lstlisting}
+git push origin --tags
+\end{lstlisting}
+
+\vspace{1.5\baselineskip}
+Der aktive Branch kann gewechselt werden zu \texttt{branch} durch
+\begin{lstlisting}
+git checkout <branch>
+\end{lstlisting}
+, gegebenenfalls muss vorher ein Branch angelegt werden durch
+\begin{lstlisting}
+git branch <branch>
+\end{lstlisting}
+. Um die Änderungen eines Branches \texttt{branch} in den HEAD-Branch zu übernehmen wird 
+\begin{lstlisting}
+git merge <branch>
+\end{lstlisting}
+ausgeführt, hierbei werden Änderungen die nicht im Konflikt stehen auch in der selben Datei automatisch kombiniert. 
+
+Ein Konflikt tritt allerdings dann auf, wenn z.B. die selbe Zeile in HEAD und <branch> auf unterschiedliche Weise modifiziert wurde. GIT markiert die im Konflikt stehenden Zeilen und der Konflikt muss lokal durch entsprechendes anpassen der Quelldatei behoben werden.
+\begin{lstlisting}
+<<<<<<< HEAD
+Der aktuelle Branch ist master
+=======
+Der aktuelle Branch ist BRANCH1
+>>>>>>> branch1
+\end{lstlisting}
+
 \end{document}
