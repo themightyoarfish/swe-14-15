@@ -122,7 +122,6 @@ git clone <url>
 \end{lstlisting} 
 wird das Remote-Repository unter \texttt{url} in das aktuelle Arbeitsverzeichnis gespiegelt.
 
-\vspace{1.5\baselineskip}
 Ein bestehendes Arbeitsverzeichnis kann aktualisiert werden durch
 \begin{lstlisting}
 git fetch
@@ -134,7 +133,6 @@ git pull
 \end{lstlisting} 
 welches beide o.g. Befehle in Einem zusammenfasst.
 
-\vspace{1.5\baselineskip}
 Dateien können einem lokalen Repository hinzugefügt werden durch
 \begin{lstlisting}
 git add <file1> <file2> ...
@@ -149,7 +147,6 @@ git push <alias> <branch>
 \end{lstlisting}
 an die Remote-Quelle \texttt{alias} (im üblichen Fall \texttt{origin}) vom lokalen \texttt{branch}-Zweig übertragen und dort als \texttt{branch}-Zweig angelegt.
 
-\vspace{1.5\baselineskip}
 Lokale Änderungen können zurückgesetzt werden auf den Stand des letzten commits durch
 \begin{lstlisting}
 git checkout -- <file1>
@@ -160,7 +157,6 @@ git reset --hard HEAD
 \end{lstlisting}
 für das gesamte Repository.
 
-\vspace{1.5\baselineskip}
 Einzelne Dateien oder Ordner können umbenannt/verschoben werden durch
 \begin{lstlisting}
 mv <file1> <file2>
@@ -176,7 +172,6 @@ zusammengefasst werden kann. Dateien können gelöscht werden durch
 git rm <file1>
 \end{lstlisting}
 
-\vspace{1.5\baselineskip}
 Um dem HEAD, also dem aktuellsten commit einen Tag \texttt{name} mit Anmerkung \texttt{message} hinzuzufügen, wird 
 \begin{lstlisting}
 git tag -a <name> -m <message>
@@ -194,7 +189,6 @@ eingesehen werden. Um Tags auch remote verfügbar zu machen, wird push mit dem P
 git push origin --tags
 \end{lstlisting}
 
-\vspace{1.5\baselineskip}
 Der aktive Branch kann gewechselt werden zu \texttt{branch} durch
 \begin{lstlisting}
 git checkout <branch>
