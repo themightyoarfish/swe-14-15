@@ -26,7 +26,13 @@ citecolor = lightgray]{hyperref}
    frame=single,
    basicstyle=\ttfamily\small,
    frameround=tttt,
-   backgroundcolor=\color{lightgray!10}
+   backgroundcolor=\color{lightgray!10},
+   keywordstyle=\color{teal}\textbf,
+   stringstyle=\itshape,
+   showstringspaces=false,
+   language=[gnu] make,
+   morecomment=[n]{$(}{)},
+   commentstyle=\color{blue}
 }
 \begin{document}
 
@@ -38,6 +44,7 @@ citecolor = lightgray]{hyperref}
 
 \subsection{Make}
 
+\lstinputlisting{make/Makefile}
 \subsection{Apache Ant}
 
 \subsection{Maven}

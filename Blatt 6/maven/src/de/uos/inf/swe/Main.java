@@ -1,5 +1,6 @@
-import a.A;
-import b.B;
+package de.uos.inf.swe;
+import de.uos.inf.swe.a.A;
+import de.uos.inf.swe.b.B;
 
 /**
  * Test-Class.

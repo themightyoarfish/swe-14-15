@@ -1,4 +1,4 @@
-package a;
+package de.uos.inf.swe.a;
 
 /**
  * Class A.
