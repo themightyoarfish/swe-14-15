@@ -42,10 +42,21 @@ citecolor = lightgray]{hyperref}
 \setcounter{section}{6}
 \setcounter{subsection}{0}
 
+\emph{Hinweis}: Die Paketzugehörigkeiten wurden geändert zu \texttt{de.uos.inf.swe[(a.A | b.B)]}.
+
 \subsection{Make}
 
-\lstinputlisting{make/Makefile}
+\lstinputlisting[caption={Makefile}]{make/Makefile}
+
 \subsection{Apache Ant}
+
+\lstinputlisting[language=XML,
+                 morekeywords={target,taskdef,javac,java,mkdir,delete,project,fileset,property,jar,javadoc,echo,manifest,attribute},
+                 keywordstyle=\color{yellow!60!black},
+                 stringstyle=\color{blue},
+                 caption={Ant-Buildfile}]{ant/build.xml}
+
+\lstinputlisting[language=Java,breaklines,caption={Task-Klasse für Count}]{ant/src/Count.java}
 
 \subsection{Maven}
 
