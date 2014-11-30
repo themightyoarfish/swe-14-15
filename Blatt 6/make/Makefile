@@ -4,14 +4,14 @@ BINDIR=bin
 PKGPATH=de/uos/inf/swe
 FILES=$(PKGPATH)/a/A.java $(PKGPATH)/b/B.java $(PKGPATH)/Main.java
 JAR=MyProject.jar
-SRC = $(addprefix $(SRCDIR)/,$(FILES))
-CLS = $(addprefix $(BINDIR)/,$(FILES:java=class))
+SRC=$(addprefix $(SRCDIR)/,$(FILES))
+CLS=$(addprefix $(BINDIR)/,$(FILES:java=class))
 MANIFEST=MANIFEST
 MAIN_CLASS=Main
 DOC=doc
 
 run: $(JAR)
-	java -jar $< $(MAIN_CLASS)
+	java -jar $<
 
 doc: $(SRC)
 	javadoc -d $(DOC) $(SRC)

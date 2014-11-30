@@ -1,4 +1,4 @@
-package b;
+package de.uos.inf.swe.b;
 
 /**
  * Class B.
