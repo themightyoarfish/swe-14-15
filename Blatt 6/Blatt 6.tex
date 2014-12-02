@@ -59,6 +59,25 @@ citecolor = lightgray]{hyperref}
 \lstinputlisting[language=Java,breaklines,caption={Task-Klasse für Count}]{ant/src/Count.java}
 
 \subsection{Maven}
+For resources, see separate files!
+\subsubsection{Maven Project}
+Creating the project files:
+\begin{lstlisting}
+mvn archetype:generate -DgroupId=de.uos.inf.swe -DartifactId=maven
+\end{lstlisting}
 
+\subsubsection{Maven Plugin}
+Creating the plugin files:
+\begin{lstlisting}
+mvn archetype:generate -DgroupId=de.uos.inf.swe 
+	-DartifactId=blatt6-maven-plugin 
+	-DarchetypeGroupId=org.apache.maven.archetypes
+	-DarchetypeArtifactId=maven-archetype-mojo
+\end{lstlisting}
+
+Executing the plugin:
+\begin{lstlisting}
+mvn de.uos.inf.swe:blatt6-maven-plugin:1.0:count
+\end{lstlisting}
 
 \end{document}
