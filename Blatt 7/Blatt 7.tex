@@ -44,6 +44,58 @@ citecolor = lightgray]{hyperref}
 \setcounter{subsection}{0}
 
 \subsection{Programmablaufplan, Struktogramm}
+
+% style for PAP
+\tikzstyle{typewriter} = [font=\ttfamily]
+\tikzstyle{decision} = [diamond, draw, fill=blue!20, typewriter,
+                        text width=4.5em, text badly centered, inner sep=0pt]
+\tikzstyle{block}    = [rectangle, draw, fill=blue!10, typewriter,
+                        text width=6em, text centered, minimum height=3em]
+\tikzstyle{line}     = [draw, -latex', typewriter]
+\tikzstyle{cloud}    = [draw, ellipse,fill=red!20, node distance=3cm,
+                        minimum height=2em, typewriter]
+\tikzstyle{io}       = [draw,trapezium,trapezium left angle=70,trapezium right
+angle=-70,minimum height=3em]
+
+
+\subsection{PAP}
+
+\begin{tikzpicture}
+   \node[cloud] (begin) {Heron};
+   \node[io,below=of begin] (zahl) {Zahl a};
+   \node[decision,below=of zahl] (a>0) {A > 0 ?};
+   \node[io,left=of a>0] (err) {Error};
+   \node[cloud,left=of err] (end) {Ende};
+   \node[block,below=of a>0] (assignx0) {$x_0$ = 1};
+   \node[block,below=of assignx0] (assignx1) {$x_1$ = 1};
+   \node[block,below=of assignx1] (assignc) {c = 0};
+   \node[block,below=of assignc] (step) {$x_1=\frac{x_0+\frac{a}{x_0}}{2}$};
+   \node[block,below=of step] (c++) {c = c + 1};
+   \node[decision,below=of c++] (converge) {$|x_1 - x_0| \le \varepsilon$ ?};
+   \node[io,left=of converge] (finish) {Näherung: $x_1$};
+   \node[decision,below=of converge] (maxiter) {c > 100000 ?};
+   \node[block,right=of c++] (updatex0) {$x_0 = x_1$};
+
+   \draw[-{Latex}] (begin) -- (zahl);
+   \draw[-{Latex}] (zahl) -- (a>0);
+   \draw[-{Latex}] (a>0) -- node[midway,left] {Ja} (assignx0);
+   \draw[-{Latex}] (assignx0) -- (assignx1);
+   \draw[-{Latex}] (assignx1) -- (assignc);
+   \draw[-{Latex}] (assignc) -- (step);
+   \draw[-{Latex}] (step) -- (c++);
+   \draw[-{Latex}] (c++) -- (converge);
+   \draw[-{Latex}] (converge) -- node[midway,right] {Nein} (maxiter);
+   \draw[-{Latex}] (converge) -- node[midway,above] {Ja} (finish);
+   \draw[-{Latex}] (maxiter) -| node[midway,left] {Ja} (finish);
+   \draw[-{Latex}] (maxiter) -| node[midway,right] {Nein} (updatex0);
+   \draw[-{Latex}] (updatex0) |- (step);
+
+   \draw[-{Latex}] (a>0) -- (err);
+   \draw[-{Latex}] (err) -- (end);
+   \draw[-{Latex}] (finish) -| (end);
+
+\end{tikzpicture}
+
 \subsection{Strukturierte Analyse}
 
 \subsubsection{DFD}
