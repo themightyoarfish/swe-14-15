@@ -68,8 +68,8 @@ angle=-70,minimum height=3em]
 
 \begin{tikzpicture}
    \node[cloud] (begin) {Heron};
-   \node[io,below=of begin] (zahl) {Zahl a};
-   \node[decision,below=of zahl] (a>0) {A > 0 ?};
+   \node[io,below=of begin] (zahl) {Zahlen a, $\varepsilon$};
+   \node[decision,below=of zahl] (a>0) {A > 0 ? \&\& $\varepsilon > 0$};
    \node[io,left=of a>0] (err) {Error};
    \node[cloud,left=of err] (end) {Ende};
    \node[block,below=of a>0] (assignx0) {$x_0$ = 1};
@@ -83,7 +83,7 @@ angle=-70,minimum height=3em]
    \node[block,right=of c++] (updatex0) {$x_0 = x_1$};
 
    \draw[-{Latex}] (begin) -- (zahl);
-   \draw[-{Latex}] (zahl) -- (a>0);
+   \draw[-{Latex}] (zahl) --  (a>0);
    \draw[-{Latex}] (a>0) -- node[midway,left] {Ja} (assignx0);
    \draw[-{Latex}] (assignx0) -- (assignx1);
    \draw[-{Latex}] (assignx1) -- (assignc);
@@ -96,7 +96,7 @@ angle=-70,minimum height=3em]
    \draw[-{Latex}] (maxiter) -| node[midway,right] {Nein} (updatex0);
    \draw[-{Latex}] (updatex0) |- (step);
 
-   \draw[-{Latex}] (a>0) -- (err);
+   \draw[-{Latex}] (a>0) -- node[midway,above] {Nein} (err);
    \draw[-{Latex}] (err) -- (end);
    \draw[-{Latex}] (finish) -| (end);
 
