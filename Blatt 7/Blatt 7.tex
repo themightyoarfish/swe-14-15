@@ -32,7 +32,8 @@ citecolor = lightgray]{hyperref}
    showstringspaces=false,
    language=[gnu] make,
    morecomment=[n]{$(}{)},
-   commentstyle=\color{blue}
+   commentstyle=\color{blue},
+   title=\lstname
 }
 \usetikzlibrary{shapes,positioning,calc,decorations.text,graphs,arrows.meta}
 \begin{document}
@@ -44,8 +45,12 @@ citecolor = lightgray]{hyperref}
 \setcounter{subsection}{0}
 
 \subsection{Programmablaufplan, Struktogramm}
-\includegraphics[scale=0.6]{Heron}
 
+\subsubsection*{Struktogramm}
+
+\begin{center}
+   \includegraphics[scale=0.6]{Heron.png}
+\end{center}
 
 % style for PAP
 \tikzstyle{typewriter} = [font=\ttfamily]
@@ -59,8 +64,7 @@ citecolor = lightgray]{hyperref}
 \tikzstyle{io}       = [draw,trapezium,trapezium left angle=70,trapezium right
 angle=-70,minimum height=3em]
 
-
-\subsection{PAP}
+\subsubsection*{PAP}
 
 \begin{tikzpicture}
    \node[cloud] (begin) {Heron};
@@ -340,10 +344,11 @@ beschränken wir uns hier auf fehlende Prüfungsleistungen.
        return Dokument
 \end{verbatim}
 
-\newpage
 \subsection{Entity-Relationship-Modellierung}
+
+\clearpage
 \begin{center}
-  \noindent\includegraphics[width=\textwidth]{ERM}
+  \includegraphics[width=\textwidth]{ERM.png}
 \end{center}
 
 \end{document}
