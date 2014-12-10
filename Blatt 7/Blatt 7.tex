@@ -166,8 +166,9 @@ Siehe \autoref{üdfd}, \autoref{ba-dfd}, \autoref{proz-dfd} und \autoref{tv-dfd}
          node[two sided,below=of prozedur] (opium) {OPIUM}
          node[two sided,below=of themenverwaltung] (themendb) {Themen-DB};
 
-         \draw[-{Latex},postaction=decorate,decoration={raise=5pt, text along path,
-         text={Ablehnung},reverse path, text align=center}] (prozedur.west) -- ++(-2cm,0);
+         \draw[-{Latex},postaction=decorate,decoration={text effects along path,raise=5pt, 
+               text={Ablehnung},reverse path,text align=center,text effects/.cd, text along
+         path, every character/.style={fill=white,draw=none,outer sep=2pt,inner sep=0}}] (prozedur.west) -- ++(-2cm,0);
 
          \draw[-{Latex},postaction=decorate,decoration={raise=5pt, text along path,
          text={Abgabeinfos},text align={left indent=1em}}] (prozedur.90) -- ++(0,4cm);
@@ -222,12 +223,14 @@ Siehe \autoref{üdfd}, \autoref{ba-dfd}, \autoref{proz-dfd} und \autoref{tv-dfd}
          erstellen}
          node[two sided,below=of bogen] (opium) {OPIUM};
 
-         \draw[-{Latex},postaction=decorate,decoration={raise=5pt, text along
-         path, text={Ablehnung},reverse path,text align=center}] (berechtigung.north west) --
+         \draw[-{Latex},postaction=decorate,decoration={text effects along path,raise=5pt, 
+               text={Ablehnung},reverse path,text align=center,text effects/.cd, text along
+         path, every character/.style={fill=white,draw=none,outer sep=2pt,inner sep=0}}] (berechtigung.north west) --
          ++(-4cm,0);
 
-         \draw[-{Latex},postaction=decorate,decoration={raise=5pt, text along
-         path, text={Abgabeinfos},reverse path,text align=center}] (berechtigung.south west) -- ++(-4cm,0);
+         \draw[-{Latex},postaction=decorate,decoration={text effects along path,raise=5pt, 
+               text={Abgabeinfos},reverse path,text align=center,text effects/.cd, text along
+         path, every character/.style={fill=white,draw=none,outer sep=2pt,inner sep=0}}] (berechtigung.south west) -- ++(-4cm,0);
 
          \draw[-{Latex},postaction=decorate,decoration={raise=5pt, text along
          path, text={Pers. Daten}, reverse path,text align=center}] ($(berechtigung.north) + (0,4cm)$) --
@@ -235,8 +238,9 @@ Siehe \autoref{üdfd}, \autoref{ba-dfd}, \autoref{proz-dfd} und \autoref{tv-dfd}
 
          \draw[-{Latex}] ($(berechtigung.north) + (0,4cm)$) -- ++(0,-1cm) -| (bogen);
 
-         \draw[-{Latex},postaction=decorate,decoration={raise=5pt, text along
-         path, text={Anmeldebogen},text align=center}] (bogen.north east) -- ++(4cm,0);
+         \draw[-{Latex},postaction=decorate,decoration={text effects along path,raise=5pt, 
+               text={Anmeldebogen},text align=center,text effects/.cd, text along
+         path, every character/.style={fill=white,draw=none,outer sep=2pt,inner sep=0}}] (bogen.north east) -- ++(4cm,0);
 
          \draw[-{Latex},postaction=decorate,decoration={raise=5pt, text along
          path,reverse path, text={Thema},text align=center}] ($(bogen.south east) +(4cm,0)$) -- (bogen.south east);
@@ -254,14 +258,16 @@ Siehe \autoref{üdfd}, \autoref{ba-dfd}, \autoref{proz-dfd} und \autoref{tv-dfd}
 
          \draw[-{Latex}] (opium-eintrag) edge[bend right=40,looseness=1] (opium.230);
 
-         \draw[-{Latex},postaction=decorate,decoration={raise=5pt, text along
-         path,text={Anmeldebogen},text align=center}]
+         \draw[-{Latex},postaction=decorate,decoration={text effects along path,raise=5pt, 
+               text={Anmeldebogen},text align=center,text effects/.cd, text along
+         path, every character/.style={fill=white,draw=none,outer sep=2pt,inner sep=0}}]
          ($(opium-eintrag.south west) + (0,-3cm)$) -- (opium-eintrag.south west);
 
       \end{tikzpicture}
       \caption{Verfeinerungs-DFD für ``Anmeldungsprozedur''}
    \label{proz-dfd}}
 \end{figure}
+
 
 \begin{figure}[h]
    {\centering      
