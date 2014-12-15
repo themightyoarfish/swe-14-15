@@ -5,6 +5,7 @@
 }
 \date{\today}
 \usepackage[ngerman]{babel}
+\usepackage[space]{grffile} % for spaces in includegraphics fnames
 \usepackage{marvosym, microtype, textcomp, xifthen, multirow, booktabs, dingbat,
    titlesec, enumitem, fullpage, tikz, IEEEtrantools, array, amsmath, listings,
 amssymb, graphicx, subcaption, lmodern,pgfplots}
@@ -47,9 +48,17 @@ citecolor = lightgray]{hyperref}
 
 \section{Sequenzdiagramm}
 
+Frag mich, woher der Pfeil oben links kommt. Dafuq.
+
 \includegraphics[width=\linewidth]{Sudoku-SD.pdf}
 
 \section{Kommunikationsdiagramm}
+
+\emph{Anmerkung:} Wie aus den Kommentaren ersichtlich, produziert Visual
+Paradigm hier teilweise Nachrichten, die nicht der im Sequenzdiagramm
+hinterlegten Semantik entsprechen.
+
+\includegraphics[width=\linewidth]{Sudoku-SD - Communications.pdf}
 
 \section{Objektdiagramm}
 
