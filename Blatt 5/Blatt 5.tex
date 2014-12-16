@@ -1,0 +1,215 @@
+\documentclass{scrartcl}
+\title{\rmfamily Software Engineering -- Blatt 5}
+\author{Rasmus Diederichsen \and Felix Breuninger\and 
+   \texttt{\{rdiederichse, fbreunin\}@uos.de}
+}
+\date{\today}
+\usepackage[ngerman]{babel}
+\usepackage[table]{xcolor}
+\usepackage{arydshln}
+\usepackage{marvosym, microtype, textcomp, xifthen, multirow, booktabs, dingbat,
+   titlesec, enumitem, fullpage, tikz, IEEEtrantools, array, amsmath, listings,
+amssymb, graphicx, subcaption, lmodern,pgfplots}
+\usepackage[pdftitle={Software Engineering -- Blatt 5}, 
+   pdfauthor={Rasmus Diederichsen, Felix Breuninger}, 
+   hyperfootnotes=true,
+   colorlinks,
+   bookmarksnumbered = true,
+   linkcolor = lightgray,
+   plainpages = false,
+citecolor = lightgray]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[all]{hypcap}
+\titleformat{\subsection}[hang]{\bf}{Aufgabe \arabic{section}.\arabic{subsection}:}{1em}{}[]
+\titleformat{\subsubsection}[hang]{\bf}{\hspace{1em}\alph{subsubsection})}{1em}{}[]
+
+\lstset{
+   frame=single,
+   basicstyle=\ttfamily\small,
+   frameround=tttt,
+   backgroundcolor=\color{lightgray!10}
+}
+\begin{document}
+
+\fontfamily{ptm}\selectfont
+\maketitle
+
+\setcounter{section}{5}
+\setcounter{subsection}{0}
+
+\subsection{SVN und GIT}
+
+\subsubsection{SVN}
+
+Ein neues leeres Repository wird serverseitig mit 
+\begin{lstlisting}
+svnadmin create <directory>
+\end{lstlisting} angelegt. Der lokale Benutzer kann mit 
+\begin{lstlisting}
+svn checkout <url> <directory>
+\end{lstlisting} das hinter der \texttt{url}
+ befindliche Repository in das lokale Verzeichnis 
+\texttt{dir} klonen. Damit werden alle im Repository enthaltenen Dateien in das
+Verzeichnis kopiert. Hat man im lokalen Verzeichnis neue Dateien erzeugt, kann
+man diese per 
+\begin{lstlisting}
+svn add <file1> <file2> ...
+\end{lstlisting} dem lokalen Repository hinzufügen. Mit 
+\begin{lstlisting}
+svn commit -m <message>
+\end{lstlisting} werden die Änderungen
+(Hinzugefügtes, Entferntes, Geändertes) auf den Server übertragen. Möchte man
+eine lokale Änderung rückgängig machen, so kann man dies vor dem Commit mit
+
+\begin{lstlisting}
+svn revert <file>
+\end{lstlisting}
+ tun. Die Datei wird dann auf den Status nach dem
+letzten \texttt{update} zurückgesetzt. Möchte man Dateien umbenennen oder
+Verschieben, muss man 
+\texttt{svn} darüber in Kenntnis setzen und muss den
+Betriebssystemkommandos 
+\texttt{mkdir}, \texttt{mv}, \texttt{cp} und 
+\texttt{rm} ein ``\texttt{svn}''
+voranstellen, um die Änderungen auch dem Repository mitzuteilen. Beim nächsten
+Commit werden diese dann auf den Server übertragen.
+
+Will man einen neuen Branch erzeugen, kann man dies direkt auf dem Server tun,
+ohne selbst eine Arbeitskopie zu besitzen. Für SVN ist ein Branch einfach nur
+eine Kopie eines Verzeichnisbaumes. Per Konvention enthält jedes Projekt die
+Unterverzeichnisse \texttt{trunk} (Hauptentwicklungspfad), \texttt{branches}
+(Verzweigungen) und \texttt{ tags } (stabile Snapshots). Neue Branches werden in
+\texttt{ branches } angelegt, z.B. durch 
+\begin{lstlisting}
+svn copy file://<path to repo>/<project name>/trunk  \
+         file://<path to repo>/<project name>/branches/dev \
+         -m ``<message>''
+\end{lstlisting} . Hierbei wird ein neuer Branch 
+\texttt{dev} auf dem Server erstellt. Nach einem \texttt{update} kann man nun
+darin arbeiten. Nach dem selben Muster erstellt man Tags als namentlich
+ausgezeichnete Unterverzeichnisse von \texttt{tags}.
+
+Will man den Branch wieder in den \texttt{trunk} mergen,
+navigiert man in ihn hinein (in der lokalen Kopie) und führt
+\begin{lstlisting}
+svn merge ^/<project name>/trunk
+\end{lstlisting} aus, wobei ``\^{}'' für die URL des Repos steht. 
+Man merged einen Branch \texttt{b1} in einen Branch \texttt{b2}, indem man sich
+im Verzeichnis \texttt{b2} befindet und 
+\begin{lstlisting}
+svn merge ^/<project name>/b1
+\end{lstlisting}
+aufruft. Änderungen in \texttt{b1} werden so in \texttt{b2} übertragen. Will man
+einen privaten Branch wieder in den \texttt{trunk} mergen, ruft man
+\begin{lstlisting}
+svn merge --reintegrate ^/<project name>[/branches]/<private branch>
+\end{lstlisting} aus dem \texttt{trunk}-Verzeichnis auf.
+Wurden an derselben Datei in beiden Branches unvereinbare Änderungen
+durchgeführt, so müssen diese aufgelöst werden, z.B. manuell. Nachdem man
+Konflikte bereinigt hat, kann man die Änderungen \texttt{commit}ten und den
+obsoleten privaten Branch löschen.
+
+
+\subsubsection{GIT}
+Durch Aufruf von
+\begin{lstlisting}
+git init
+\end{lstlisting} 
+wird das aktuelle Arbeitsverzeichnis zu einem neuen Repository deklariert. Durch
+\begin{lstlisting}
+git clone <url>
+\end{lstlisting} 
+wird das Remote-Repository unter \texttt{url} in das aktuelle Arbeitsverzeichnis gespiegelt.
+
+Ein bestehendes Arbeitsverzeichnis kann aktualisiert werden durch
+\begin{lstlisting}
+git fetch
+git merge
+\end{lstlisting} 
+oder alternativ durch 
+\begin{lstlisting}
+git pull
+\end{lstlisting} 
+welches beide o.g. Befehle in Einem zusammenfasst.
+
+Dateien können einem lokalen Repository hinzugefügt werden durch
+\begin{lstlisting}
+git add <file1> <file2> ...
+\end{lstlisting}
+und darauf folgend, neben allen weiteren Änderungen gegenüber des Remote-Repositories, durch
+\begin{lstlisting}
+git commit -am <message>
+\end{lstlisting}
+als neuer Snapshot mit der Bemerkung \texttt{message} angelegt. Die angelegten Snapshots werden mit
+\begin{lstlisting}
+git push <alias> <branch>
+\end{lstlisting}
+an die Remote-Quelle \texttt{alias} (im üblichen Fall \texttt{origin}) vom lokalen \texttt{branch}-Zweig übertragen und dort als \texttt{branch}-Zweig angelegt.
+
+Lokale Änderungen können zurückgesetzt werden auf den Stand des letzten commits durch
+\begin{lstlisting}
+git checkout -- <file1>
+\end{lstlisting}
+für eine einzelne Datei oder
+\begin{lstlisting}
+git reset --hard HEAD
+\end{lstlisting}
+für das gesamte Repository.
+
+Einzelne Dateien oder Ordner können umbenannt/verschoben werden durch
+\begin{lstlisting}
+mv <file1> <file2>
+git add <file2>
+git rm <file1>
+\end{lstlisting}
+was als
+\begin{lstlisting}
+git mv <file1> <file2>
+\end{lstlisting}
+zusammengefasst werden kann. Dateien können gelöscht werden durch
+\begin{lstlisting}
+git rm <file1>
+\end{lstlisting}
+
+Um dem HEAD, also dem aktuellsten commit einen Tag \texttt{name} mit Anmerkung \texttt{message} hinzuzufügen, wird 
+\begin{lstlisting}
+git tag -a <name> -m <message>
+\end{lstlisting}
+ausgeführt. Ein Tag kann auch einem speziellen commit hinzugefügt werden durch
+\begin{lstlisting}
+git tag -a <name> -m <message> <commit>
+\end{lstlisting}
+und eine Liste aller Tags kann mit
+\begin{lstlisting}
+git tag
+\end{lstlisting}
+eingesehen werden. Um Tags auch remote verfügbar zu machen, wird push mit dem Parameter --tags ausgeführt
+\begin{lstlisting}
+git push origin --tags
+\end{lstlisting}
+
+Der aktive Branch kann gewechselt werden zu \texttt{branch} durch
+\begin{lstlisting}
+git checkout <branch>
+\end{lstlisting}
+, gegebenenfalls muss vorher ein Branch angelegt werden durch
+\begin{lstlisting}
+git branch <branch>
+\end{lstlisting}
+. Um die Änderungen eines Branches \texttt{branch} in den HEAD-Branch zu übernehmen wird 
+\begin{lstlisting}
+git merge <branch>
+\end{lstlisting}
+ausgeführt, hierbei werden Änderungen die nicht im Konflikt stehen auch in der selben Datei automatisch kombiniert. 
+
+Ein Konflikt tritt allerdings dann auf, wenn z.B. die selbe Zeile in HEAD und <branch> auf unterschiedliche Weise modifiziert wurde. GIT markiert die im Konflikt stehenden Zeilen und der Konflikt muss lokal durch entsprechendes anpassen der Quelldatei behoben werden.
+\begin{lstlisting}
+<<<<<<< HEAD
+Der aktuelle Branch ist master
+=======
+Der aktuelle Branch ist BRANCH1
+>>>>>>> branch1
+\end{lstlisting}
+
+\end{document}

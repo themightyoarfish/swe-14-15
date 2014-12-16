@@ -1,0 +1,78 @@
+PLAIN
+K 13
+svn:mergeinfo
+V 18
+/project/trunk:6-8
+END
+ENDREP
+id: 4-1.0-6.r9/60
+type: dir
+pred: 4-1.0-6.r7/356
+count: 7
+text: 7 293 50 50 9b71cc1256cdec59dee8c170bac63e03
+props: 9 0 47 0 697cf71297dd6e941bba889e1b395248
+cpath: /project/branches/dev
+copyroot: 6 /project/branches/dev
+minfo-cnt: 1
+minfo-here: y
+
+PLAIN
+K 3
+dev
+V 17
+dir 4-1.0-6.r9/60
+END
+ENDREP
+id: 2-1.0.r9/357
+type: dir
+pred: 2-1.0.r7/577
+count: 3
+text: 9 309 35 35 2364518c595b95ba8c863774d8d16dea
+cpath: /project/branches
+copyroot: 0 /
+minfo-cnt: 1
+
+PLAIN
+K 8
+branches
+V 16
+dir 2-1.0.r9/357
+K 4
+tags
+V 15
+dir 5-1.0.r1/74
+K 5
+trunk
+V 18
+dir 4-1.0-2.r8/337
+END
+ENDREP
+id: 0-1.0.r9/632
+type: dir
+pred: 0-1.0.r8/613
+count: 8
+text: 9 516 103 103 81b92915f214f943a9579eee7143df2c
+cpath: /project
+copyroot: 0 /
+minfo-cnt: 1
+
+PLAIN
+K 7
+project
+V 16
+dir 0-1.0.r9/632
+END
+ENDREP
+id: 0.0.r9/835
+type: dir
+pred: 0.0.r8/803
+count: 9
+text: 9 784 38 38 5100505a66ad943680b87adcb2613f16
+cpath: /
+copyroot: 0 /
+minfo-cnt: 1
+
+4-1.0-6.t8-8 modify-dir false true /project/branches/dev
+
+
+835 974

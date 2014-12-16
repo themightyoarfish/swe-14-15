@@ -1,0 +1,65 @@
+id: 2-1.0.r1/0
+type: dir
+count: 0
+cpath: /project/branches
+copyroot: 0 /
+
+id: 5-1.0.r1/74
+type: dir
+count: 0
+cpath: /project/tags
+copyroot: 0 /
+
+id: 4-1.0.r1/145
+type: dir
+count: 0
+cpath: /project/trunks
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 14
+dir 2-1.0.r1/0
+K 4
+tags
+V 15
+dir 5-1.0.r1/74
+K 6
+trunks
+V 16
+dir 4-1.0.r1/145
+END
+ENDREP
+id: 0-1.0.r1/332
+type: dir
+count: 0
+text: 1 219 100 100 5d6bb4f49d5cac51f8476cf1149c5d72
+cpath: /project
+copyroot: 0 /
+
+PLAIN
+K 7
+project
+V 16
+dir 0-1.0.r1/332
+END
+ENDREP
+id: 0.0.r1/503
+type: dir
+pred: 0.0.r0/17
+count: 1
+text: 1 452 38 38 990e572bed942cbf7312b4d708d49e31
+cpath: /
+copyroot: 0 /
+
+_0.0.t0-0 add-dir false false /project
+
+_2.0.t0-0 add-dir false false /project/branches
+
+_5.0.t0-0 add-dir false false /project/tags
+
+_4.0.t0-0 add-dir false false /project/trunks
+
+
+503 628

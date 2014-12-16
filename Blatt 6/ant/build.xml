@@ -1,0 +1,58 @@
+<project name="MyProject" default="run" basedir=".">
+   <property name="src.dir" value="src"/>
+   <property name="bin.dir" value="bin"/>
+   <property name="doc.dir" value="doc"/>
+   <property name="manifest.name" value="MANIFEST"/>
+   <property name="jar.name" value="${ant.project.name}.jar"/>
+   <property name="package.name" value="de.uos.inf.swe"/>
+
+   <fileset id="sources" dir="${src.dir}" excludes="Count.java"/>
+   <taskdef name="count" classname="Count" classpath="${basedir}"/>
+
+   <target name="count">
+      <count countlines="true" countfiles="true">
+         <fileset refid="sources"/>
+      </count>
+   </target>
+
+   <target name="debug">
+         <echo message="files: ${toString:sources}"/>
+      </target>
+
+   <target name="run" depends="jar">
+      <java jar="${jar.name}" fork="true"/>
+   </target>
+
+   <target name="doc">
+      <javadoc sourcepath="${src.dir}"
+         destdir="${doc.dir}"
+         packagenames="${package.name}.*"/>
+   </target>
+
+   <target name="jar" depends="compile,manifest">
+      <jar destfile="${jar.name}" 
+         basedir="${bin.dir}"
+         manifest="${manifest.name}"/>
+   </target>
+
+   <target name="compile">
+      <mkdir dir="${bin.dir}"/>
+      <javac srcdir="${src.dir}"
+         destdir="${bin.dir}"
+         classpath="${bin.dir}"/>
+   </target>
+
+   <target name="manifest">
+      <manifest file="MANIFEST">
+         <attribute name="Main-Class" value="${package.name}.Main"/>
+      </manifest>
+   </target>
+
+   <target name="clean">
+      <delete dir="${bin.dir}"/>
+      <delete dir="${doc.dir}"/>
+      <delete file="${jar.name}"/>
+      <delete file="${manifest.name}"/>
+   </target>
+
+</project>
