@@ -1,0 +1,61 @@
+\documentclass{scrartcl}
+\title{\rmfamily Software Engineering -- Blatt 9}
+\author{Rasmus Diederichsen \and Felix Breuninger\and 
+   \texttt{\{rdiederichse, fbreunin\}@uos.de}
+}
+\date{\today}
+\usepackage[ngerman]{babel}
+\usepackage[space]{grffile} % for spaces in includegraphics fnames
+\usepackage{marvosym, microtype, textcomp, xifthen, multirow, booktabs, dingbat,
+   titlesec, enumitem, fullpage, tikz, IEEEtrantools, array, amsmath, listings,
+amssymb, graphicx, subcaption, lmodern,pgfplots}
+\usepackage[pdftitle={Software Engineering -- Blatt 9}, 
+   pdfauthor={Rasmus Diederichsen, Felix Breuninger}, 
+   hyperfootnotes=true,
+   colorlinks,
+   bookmarksnumbered = true,
+   linkcolor = lightgray,
+   plainpages = false,
+citecolor = lightgray]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[all]{hypcap}
+\titleformat{\section}[hang]{\bf}{Aufgabe 9.\arabic{section}:}{1em}{}[]
+\titleformat{\subsection}[hang]{\bf}{\hspace{1em}\alph{subsubsection})}{1em}{}[]
+
+\lstset{
+   frame=single,
+   basicstyle=\ttfamily\small,
+   frameround=tttt,
+   backgroundcolor=\color{lightgray!10},
+   keywordstyle=\color{teal}\textbf,
+   stringstyle=\itshape,
+   showstringspaces=false,
+   language=[gnu] make,
+   morecomment=[n]{$(}{)},
+   commentstyle=\color{blue},
+   title=\lstname
+}
+\usetikzlibrary{shapes,positioning,calc,decorations.text,graphs,arrows.meta}
+\begin{document}
+
+\fontfamily{ptm}\selectfont
+\maketitle
+
+\section{Aktivitätsdiagramm}
+
+Der Koffer ist in \autoref{akti} ein einfaches Datum, da er nicht gefüllt oder entleert wird.
+Er kann auch kein Datenspeicher sein, weil er selbst ja auch auf dem Datenfluss
+fließt. Der Kofferraum hingegen ist wie der Briefkasten ein flüchtiger Speicher.
+Wenn man Metaphysik außer Acht lässt, kann man sich relativ sicher sein, dass
+der Koffer, den man reintut, der selbe ist, den man wieder herausholt. Zudem
+dupliziert ein Kofferraum auch keine Gegenstände.
+
+\begin{figure}
+   {\centering      
+      \includegraphics[width=\linewidth]{Reise.pdf}
+      \caption{Aktivitätsdiagramm für Herrn Faber}
+   \label{akti}}
+\end{figure}
+
+\end{document}
