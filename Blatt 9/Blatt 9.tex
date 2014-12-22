@@ -58,4 +58,19 @@ dupliziert ein Kofferraum auch keine Gegenstände.
    \label{akti}}
 \end{figure}
 
+\section{Zeitdiagramm}
+
+Für das Diagramm (\autoref{wildschwein}) nehmen wir an, dass der \texttt{Schweinebrater} immer 2
+Einheiten ins Depot legt in der Zeit, die \texttt{Obelix} zum Entfernen einer
+Einheit braucht (aufgrund der \texttt{sleep()}-Argumente). Nach 9 Durchläufen
+ist das Depot dann voll, der \texttt{Schweinebrater} ruft \texttt{wait()} auf
+und wird später geweckt. Das selbe kann natürlich auch \texttt{Obelix}
+passieren, dieser Fall ist hier nicht dargestellt.
+
+\begin{figure}
+   {\centering      
+   \includegraphics[width=\linewidth]{Wildschwein.pdf}
+   \caption{Zeitdiagramm des Producer-Consumer-Szenarios}
+   \label{wildschwein}}
+\end{figure}
 \end{document}
