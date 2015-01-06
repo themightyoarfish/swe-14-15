@@ -73,4 +73,34 @@ passieren, dieser Fall ist hier nicht dargestellt.
    \caption{Zeitdiagramm des Producer-Consumer-Szenarios}
    \label{wildschwein}}
 \end{figure}
+
+\section{Anwendungsfalldiagramm}
+
+\begin{figure}
+   {\centering      
+   \includegraphics[width=\linewidth]{Autovermietung.pdf}
+   \caption{Use-Case-Diagram der Autovermietung}
+   \label{autovermietung}}
+\end{figure}
+
+\begin{table}[h]
+\begin{tabular}{l | l}
+\multicolumn{2}{l}{Beschreibung Anwendungsfall}                                         \\
+Name                 & Fahrzeug übergeben                                               \\
+Kurzbeschreibung     & (Reserviertes) Fahrzeug wird von Mitarbeiter an Kunden übergeben \\
+Akteure              & Mitarbeiter, Kunde                                               \\
+Auslöser             & Kunde kommt zu Abholtermin                                       \\
+Ergebnis(se)         &  Fahrzeug nicht verfügbar                                                                \\
+Eingehende Daten     & Führerscheinklasse, Alter, Führerscheinnummer                    \\
+Vorbedingungen       & Führerscheinklasse und Alter entsprechen Anforderungen           \\
+Nachbedingungen      &   -                                                               \\
+Essenzielle Schritte & Angaben überprüfen, FS-Nummer ergänzen                           \\
+Offene Punkte        &  -                                                                \\
+Sonstige Anmerkungen & -                                                                
+\end{tabular}
+
+\caption{Beschreibung Use-Case Fahrzeug übergeben}
+\end{table}
+
+
 \end{document}
