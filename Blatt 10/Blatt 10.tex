@@ -135,20 +135,86 @@ Das evolutionäre Vorgehen ist charakterisiert durch
    \item Da die Anforderungen bekannt sind und ein strikter Zeitplan möglich
       ist, bietes sich ein lineares Vorgehen wie Wasserfall oder V-Modell an.
       Es ist nicht erforderlich, möglichst schnell etwas präsentieren zu können,
-      also muss man nich agil vorgehen.
+      also muss man nicht agil vorgehen.
    \item Rapides Prototyping erlaubt, das Problem notdürftig zu hotfixen, der
-      Fix kann dann verbesert werden.
+      Fix kann dann verbessert und stabilisiert werden. Möglich wäre auch ein
+      Code-and-Fix-Ansatz, da hier höchste Dringlichkeit gegeben ist.
    \item Evolutionär vorzugehen, würde es erlauben, die zwangsläufig
       auftretenden Änderungen miteinzubeziehen.
    \item Das V-Modell expliziert die Notwendigkeit und Zuständigkeit
-      verschiedener Tests
-   \item Seems legit. Code-and-Fix wäre hier ausreichend, da Dr. Blair kein
+      verschiedener Tests. Dank der vorliegenden älteren Version kann das
+      Projekt gut von vorn bis hinten durchgeplant werden, bevor man anfängt.
+   \item Code-and-Fix wäre hier ausreichend, da Dr. Blair kein
       Softwareingenieur ist und nur flott etwas demonstrieren muss. Die Software
       wird weder wirklich benötigt, noch wird sie länger in Betrieb sein.
 \end{enumerate}
 
 \section{Scrum}
 
+\subsection{}
+
+Zu Beginn des Projektes definiert der Kunde eine Menge von Funktionalitäten und
+einen Zeitrahmen; die Funktionalitäten werden priorisiert und in das vom
+\emph{Product Owner} gepflegte \emph{Product Backlog} eingefügt. Dies kann in
+Form von User Stories mit assoziierten Story Points (Wichtigkeit, Aufwand) o.Ä.
+geschehen. In einem \emph{Releas Plan} wird dann die Dauer der Sprints und die
+grobe Verteilung der Features festgehalten.
+
+Anhand des Zeitrahmens kann die Zahl an Features, die im nächsten
+\emph{Sprint} abgearbeitet werden sollen, sowie die Länge der Sprints (typisch
+1-4 Wochen), festgelegt werden. Für jeden Sprint werden die wichtigsten Features
+durch den Product Owner aus dem Product Backlog in das \emph{Sprint Backlog}
+eingefügt und in dem für einen Sprint allokierten Zeitrahmen abgearbeitet. Das
+Entwicklerteam hält tägich ein \emph{Daily Scrum} Meeting, in dem jedes Mitglied
+folgende Fragen beantwortet:
+
+\begin{enumerate}
+   \item Was habe ich seit dem letzten Meeting erreicht?
+   \item Welche Probleme traten dabei auf?
+   \item Was werde ich bis zum nächsten Meeting schaffen?
+\end{enumerate}
+
+Anhand der Antworten können der \emph{Scrum Master}, der auch die korrekte
+Einhaltung des Vorgehens überwacht, und das Management z.B. die Größe des Sprint
+Backlogs oder andere Projektparameter variieren. Nach jedem Sprint wird die
+erreichte Funktionalität dem Kunden (oder allgemeiner \emph{Product Owner})
+vorgestellt. Während jedes Sprints kann ein \emph{Burndown Chart} die Zahl noch
+umszusetzender Story Points der Zeit im Sprint gegenüberstellen, sodass man
+sieht, ob man die gesteckten Ziele erreicht oder nicht, wenn man genau so weiter
+macht. Die Zahl noch zu erreichender Story Points nimmt idealerweise linear ab.
+
+Analog dazu gibt es auch ein \emph{Release Burndown Chart}, dass den
+Gesamtfortschritt überwacht, sodass der Release Plan gegebenenfalls angepasst
+werden kann.   
+
+Probleme werden in das \emph{Impediment Backlog} eingetragen.
+
+Der \emph{Product Owner} kann jederzeit neue Funktionalität fordern, diese wird
+aber zunächst ins Product Backlog eingefügt und daher erst im nächsten Sprint
+bearbeitet.
+
+Ein Feature gilt als fertig, wenn es die durch den Kunden gegebene
+\emph{Definition of Done} erfüllt.
+
+\subsection{}
+
+\begin{center}
+   \begin{tabular}{ll}
+      Manifest-Element & Unterstützung durch Scrum \\
+      Individuals and interactions over processes and tools & Tägliche Meetings,
+      keine strenge Vorschift, wie innerhalb eines Sprints vorzugehen ist \\
+      Working software over comprehensive documentation & Nach jedem Sprint kann
+      eine Zwischenversion präsentiert werden, es gibt nur eine Handvoll
+      Dokumente (s.o.) \\
+      Customer collaboration over contract negotiation & Reviews finden am Ende
+      jedes Sprints statt, der Kunde kann jederzeit neue Anforderungen
+      formulieren, es muss nicht alles ab Start fest stehen \\
+      Responding to change over following a plan & Zwar werden Pläne erstellt,
+      sind jedoch änderbar. Änderungen können zu Anfang jedes Sprints Rechnugn
+      getragen werden.
+
+   \end{tabular}
+\end{center}
 \section{Kanban}
 
 
