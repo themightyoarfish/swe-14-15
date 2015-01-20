@@ -130,6 +130,7 @@ Das evolutionäre Vorgehen ist charakterisiert durch
    \item \emph{Pressman, R.: Software engineering: a practitioner’s approach, 5th ed.}
    \item \emph{Larman, C.: Agile and Iterative Development: A Manage's Guide}
 \end{enumerate}
+
 \section{Vorgehensmodelle}
 \begin{enumerate}
    \item Da die Anforderungen bekannt sind und ein strikter Zeitplan möglich
@@ -157,7 +158,7 @@ Zu Beginn des Projektes definiert der Kunde eine Menge von Funktionalitäten und
 einen Zeitrahmen; die Funktionalitäten werden priorisiert und in das vom
 \emph{Product Owner} gepflegte \emph{Product Backlog} eingefügt. Dies kann in
 Form von User Stories mit assoziierten Story Points (Wichtigkeit, Aufwand) o.Ä.
-geschehen. In einem \emph{Releas Plan} wird dann die Dauer der Sprints und die
+geschehen. In einem \emph{Release Plan} wird dann die Dauer der Sprints und die
 grobe Verteilung der Features festgehalten.
 
 Anhand des Zeitrahmens kann die Zahl an Features, die im nächsten
@@ -165,7 +166,7 @@ Anhand des Zeitrahmens kann die Zahl an Features, die im nächsten
 1-4 Wochen), festgelegt werden. Für jeden Sprint werden die wichtigsten Features
 durch den Product Owner aus dem Product Backlog in das \emph{Sprint Backlog}
 eingefügt und in dem für einen Sprint allokierten Zeitrahmen abgearbeitet. Das
-Entwicklerteam hält tägich ein \emph{Daily Scrum} Meeting, in dem jedes Mitglied
+Entwicklerteam hält täglich ein \emph{Daily Scrum} Meeting, in dem jedes Mitglied
 folgende Fragen beantwortet:
 
 \begin{enumerate}
@@ -183,7 +184,7 @@ umszusetzender Story Points der Zeit im Sprint gegenüberstellen, sodass man
 sieht, ob man die gesteckten Ziele erreicht oder nicht, wenn man genau so weiter
 macht. Die Zahl noch zu erreichender Story Points nimmt idealerweise linear ab.
 
-Analog dazu gibt es auch ein \emph{Release Burndown Chart}, dass den
+Analog dazu gibt es auch ein \emph{Release Burndown Chart}, das den
 Gesamtfortschritt überwacht, sodass der Release Plan gegebenenfalls angepasst
 werden kann.   
 
@@ -199,7 +200,7 @@ Ein Feature gilt als fertig, wenn es die durch den Kunden gegebene
 \subsection{}
 
 \begin{center}
-   \begin{tabular}{ll}
+   \begin{tabular}{p{.5\textwidth}p{.5\textwidth}}
       Manifest-Element & Unterstützung durch Scrum \\
       Individuals and interactions over processes and tools & Tägliche Meetings,
       keine strenge Vorschift, wie innerhalb eines Sprints vorzugehen ist \\
@@ -212,10 +213,36 @@ Ein Feature gilt als fertig, wenn es die durch den Kunden gegebene
       Responding to change over following a plan & Zwar werden Pläne erstellt,
       sind jedoch änderbar. Änderungen können zu Anfang jedes Sprints Rechnugn
       getragen werden.
-
    \end{tabular}
 \end{center}
-\section{Kanban}
 
+\subsection{}
+\begin{description}
+  \item[Entwickle iterativ:] Sprints
+  \item[Überwache Erfüllung der Anforderungen:] Sprint reviews
+  \item[Verfolge Änderungen:] Product Backlog Refinement
+  \item[Schließe jeden Schritt mit Qualitätsprüfung ab:] Sprint reviews / DoD
+  \item[Lerne von Fehlern:] Sprint Retrospective Meeting 
+  \item[Arbeite nach Plan:] Sprint / Product backlog
+\end{description}
+
+\subsection{}
+\begin{description}
+  \item[Product backlog:]  Liste von Anforderungen die Umzusetzen sind. Anforderungen werden hier priorisiert und pro Sprint wird eine ausgewählte Anforderung komplett umgesetzt.
+  \item[Burndown Chart:] Visualisierung von Fortschritt in Bezug auf Gesamtprojekt / Sprint
+  \item[Definition of Done:] Kriterien und Anforderungen, wann eine Arbeit als fertig bezeichnet werden kann (z.B. Kommentare, Unit-Tests)
+\end{description}
+
+
+\section{Kanban}
+Kanban ist ursprünglich ein Konzept zur schlanken Produktion von Autos, die Übertragung in die Software Entwicklung ist dem lean development entlehnt. Hierbei wird just-in-time und somit überschussfrei produziert und somit ein besserer Durchlauf der Materialien erreicht und Engpässe vermieden. Kaizen referenziert hier auf eine kontinuierliche Verbesserung ausgehend von der aktuellen Situation, und nicht etwa eine fundamentale Änderung in der Arbeitsweise oder einen Soll-Zustand als Ziel.
+
+\begin{description}
+  \item[Visualisierung des Arbeitsflusses und der Arbeit:] Alle nötigen Arbeitsphasen und -schritte bis zur Fertigstellung des Produktes oder der Software werden auf einem Whiteboard durch Notizzettel visualisiert. Ausserdem wird vermerkt, wann eine Phase als abgeschlossen gilt (Definition of Done). Somit durchwandern die Notizzettel der einzelnen Arbeitsschritte / Module die Phasen des Whiteboards von links nach rechts.
+  \item[Limitierung des WIP (Work In Progress):] Durch Ziehen neuer Aufgaben (statt ``zugeschoben bekommen'') und Begrenzung der Aufgabenzahl pro Station wird Überlastung einzelner Phasen vermieden und alte Aufgaben müssen abgeschlossen werden, bevor zu viele neuen begonnen werden können.
+  \item[Steuerung und Messung des Arbeitsflusses:] Durch Messung des Durchsatzes oder der Fehlerrate jeder Phase können Engpässe schnell behoben oder auf Probleme reagiert werden. Dieser Prozess findet kontinuierlich statt, der Gesamtprozess wird also (Kaizen folgend) evolutiv optimiert.
+  \item[Prozess-Regeln explizit machen:] Alle beteiligten Mitarbeiter müssen Regeln wie die Definition of Done und die Bedeutung der Phasen kennen, um den Gesamtprozess nachvollziehen zu können.
+  \item[Verbesserung durch bewährte Modelle:] Durch Anwendung von Modellen aus anderen Bereichen (z.B. Engpasstheorie) kann der Gesamtprozess weiter verbessert werden.
+\end{description}
 
 \end{document}
